@@ -17,11 +17,14 @@
 
     app.config(function ($routeProvider) {
         $routeProvider
-                .when('/new', {
-                    templateUrl: 'seleccion.html'
+                .when('/registrar', {
+                    templateUrl: 'registrar.html'
                 })                
-                .when('/list', {
-                    templateUrl: 'checkout.html'
+                .when('/producto', {
+                    templateUrl: 'producto.html'
+                })
+                .when('/transporte', {
+                    templateUrl: 'transporte.html'
                 })
                 .when('/home', {
                     templateUrl: 'home.html'                 
@@ -31,7 +34,7 @@
 
     app.controller('skcontroller', function ($scope,ProductsRestAPI, productsSelectionFactory) {
         
-        $scope.availableProducts=[];
+        /*$scope.availableProducts=[];
         
         $scope.selectedProducts=productsSelectionFactory.getData();
         
@@ -80,7 +83,7 @@
                 }
             );
             
-        };       
+        };       */
         
  
         
