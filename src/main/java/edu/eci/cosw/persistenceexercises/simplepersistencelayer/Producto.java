@@ -22,7 +22,6 @@ import javax.persistence.Table;
  */
 @Entity
 @Table(name="Producto"
-    ,catalog="cosw4"
 )
 public class Producto  implements java.io.Serializable {
 
@@ -32,8 +31,8 @@ public class Producto  implements java.io.Serializable {
      private int precio;
      private String nombre;
      private String descripcion;
-     private Set detallePedidoProductos = new HashSet(0);
-     private Set proveedors = new HashSet(0);
+     private Set<DetallePedidoProducto> detallePedidoProductos = new HashSet<DetallePedidoProducto>(0);
+     private Set<Proveedor> proveedors = new HashSet<Proveedor>(0);
 
     public Producto() {
     }
@@ -45,7 +44,7 @@ public class Producto  implements java.io.Serializable {
         this.nombre = nombre;
         this.descripcion = descripcion;
     }
-    public Producto(Evaluacion evaluacion, int precio, String nombre, String descripcion, Set detallePedidoProductos, Set proveedors) {
+    public Producto(Evaluacion evaluacion, int precio, String nombre, String descripcion, Set<DetallePedidoProducto> detallePedidoProductos, Set<Proveedor> proveedors) {
        this.evaluacion = evaluacion;
        this.precio = precio;
        this.nombre = nombre;
@@ -107,11 +106,11 @@ public class Producto  implements java.io.Serializable {
     }
 
 @OneToMany(fetch=FetchType.LAZY, mappedBy="producto")
-    public Set getDetallePedidoProductos() {
+    public Set<DetallePedidoProducto> getDetallePedidoProductos() {
         return this.detallePedidoProductos;
     }
     
-    public void setDetallePedidoProductos(Set detallePedidoProductos) {
+    public void setDetallePedidoProductos(Set<DetallePedidoProducto> detallePedidoProductos) {
         this.detallePedidoProductos = detallePedidoProductos;
     }
 
@@ -119,11 +118,11 @@ public class Producto  implements java.io.Serializable {
     @JoinTable(name="Producto_has_Proveedor", catalog="cosw4", joinColumns = { 
         @JoinColumn(name="Producto_idProducto", nullable=false, updatable=false) }, inverseJoinColumns = { 
         @JoinColumn(name="Proveedor_idProveedor", nullable=false, updatable=false) })
-    public Set getProveedors() {
+    public Set<Proveedor> getProveedors() {
         return this.proveedors;
     }
     
-    public void setProveedors(Set proveedors) {
+    public void setProveedors(Set<Proveedor> proveedors) {
         this.proveedors = proveedors;
     }
 

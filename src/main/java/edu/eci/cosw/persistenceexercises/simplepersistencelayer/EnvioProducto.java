@@ -20,7 +20,6 @@ import javax.persistence.TemporalType;
  */
 @Entity
 @Table(name="Envio_Producto"
-    ,catalog="cosw4"
 )
 public class EnvioProducto  implements java.io.Serializable {
 

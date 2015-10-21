@@ -20,7 +20,6 @@ import javax.persistence.Table;
  */
 @Entity
 @Table(name="Transporte"
-    ,catalog="cosw4"
 )
 public class Transporte  implements java.io.Serializable {
 
@@ -31,7 +30,7 @@ public class Transporte  implements java.io.Serializable {
      private String tipo;
      private String placa;
      private int precio;
-     private Set pedidoTransportes = new HashSet(0);
+     private Set<PedidoTransporte> pedidoTransportes = new HashSet<PedidoTransporte>(0);
 
     public Transporte() {
     }
@@ -44,7 +43,7 @@ public class Transporte  implements java.io.Serializable {
         this.placa = placa;
         this.precio = precio;
     }
-    public Transporte(Evaluacion evaluacion, Proveedor proveedor, String tipo, String placa, int precio, Set pedidoTransportes) {
+    public Transporte(Evaluacion evaluacion, Proveedor proveedor, String tipo, String placa, int precio, Set<PedidoTransporte> pedidoTransportes) {
        this.evaluacion = evaluacion;
        this.proveedor = proveedor;
        this.tipo = tipo;
@@ -116,11 +115,11 @@ public class Transporte  implements java.io.Serializable {
     }
 
 @OneToMany(fetch=FetchType.LAZY, mappedBy="transporte")
-    public Set getPedidoTransportes() {
+    public Set<PedidoTransporte> getPedidoTransportes() {
         return this.pedidoTransportes;
     }
     
-    public void setPedidoTransportes(Set pedidoTransportes) {
+    public void setPedidoTransportes(Set<PedidoTransporte> pedidoTransportes) {
         this.pedidoTransportes = pedidoTransportes;
     }
 

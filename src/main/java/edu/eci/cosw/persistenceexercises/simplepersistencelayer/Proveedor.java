@@ -21,7 +21,6 @@ import javax.persistence.Table;
  */
 @Entity
 @Table(name="Proveedor"
-    ,catalog="cosw4"
 )
 public class Proveedor  implements java.io.Serializable {
 
@@ -30,8 +29,8 @@ public class Proveedor  implements java.io.Serializable {
      private String nombre;
      private String direccion;
      private String telefono;
-     private Set productos = new HashSet(0);
-     private Set transportes = new HashSet(0);
+     private Set<Producto> productos = new HashSet<Producto>(0);
+     private Set<Transporte> transportes = new HashSet<Transporte>(0);
 
     public Proveedor() {
     }
@@ -42,7 +41,7 @@ public class Proveedor  implements java.io.Serializable {
         this.direccion = direccion;
         this.telefono = telefono;
     }
-    public Proveedor(String nombre, String direccion, String telefono, Set productos, Set transportes) {
+    public Proveedor(String nombre, String direccion, String telefono, Set<Producto> productos, Set<Transporte> transportes) {
        this.nombre = nombre;
        this.direccion = direccion;
        this.telefono = telefono;
@@ -96,24 +95,22 @@ public class Proveedor  implements java.io.Serializable {
     @JoinTable(name="Producto_has_Proveedor", catalog="cosw4", joinColumns = { 
         @JoinColumn(name="Proveedor_idProveedor", nullable=false, updatable=false) }, inverseJoinColumns = { 
         @JoinColumn(name="Producto_idProducto", nullable=false, updatable=false) })
-    public Set getProductos() {
+    public Set<Producto> getProductos() {
         return this.productos;
     }
     
-    public void setProductos(Set productos) {
+    public void setProductos(Set<Producto> productos) {
         this.productos = productos;
     }
 
 @OneToMany(fetch=FetchType.LAZY, mappedBy="proveedor")
-    public Set getTransportes() {
+    public Set<Transporte> getTransportes() {
         return this.transportes;
     }
     
-    public void setTransportes(Set transportes) {
+    public void setTransportes(Set<Transporte> transportes) {
         this.transportes = transportes;
     }
-
-
 
 
 }

@@ -19,7 +19,6 @@ import javax.persistence.UniqueConstraint;
  */
 @Entity
 @Table(name="Cliente"
-    ,catalog="cosw4"
     , uniqueConstraints = @UniqueConstraint(columnNames="CORREO") 
 )
 public class Cliente  implements java.io.Serializable {
@@ -33,8 +32,8 @@ public class Cliente  implements java.io.Serializable {
      private String direccion;
      private int telefono;
      private String correo;
-     private Set pedidoProductos = new HashSet(0);
-     private Set pedidoTransportes = new HashSet(0);
+     private Set<PedidoProducto> pedidoProductos = new HashSet<PedidoProducto>(0);
+     private Set<PedidoTransporte> pedidoTransportes = new HashSet<PedidoTransporte>(0);
 
     public Cliente() {
     }
@@ -48,7 +47,7 @@ public class Cliente  implements java.io.Serializable {
         this.telefono = telefono;
         this.correo = correo;
     }
-    public Cliente(String nombre, String apellido, String tipoDoc, int numDoc, String direccion, int telefono, String correo, Set pedidoProductos, Set pedidoTransportes) {
+    public Cliente(String nombre, String apellido, String tipoDoc, int numDoc, String direccion, int telefono, String correo, Set<PedidoProducto> pedidoProductos, Set<PedidoTransporte> pedidoTransportes) {
        this.nombre = nombre;
        this.apellido = apellido;
        this.tipoDoc = tipoDoc;
@@ -143,20 +142,20 @@ public class Cliente  implements java.io.Serializable {
     }
 
 @OneToMany(fetch=FetchType.LAZY, mappedBy="cliente")
-    public Set getPedidoProductos() {
+    public Set<PedidoProducto> getPedidoProductos() {
         return this.pedidoProductos;
     }
     
-    public void setPedidoProductos(Set pedidoProductos) {
+    public void setPedidoProductos(Set<PedidoProducto> pedidoProductos) {
         this.pedidoProductos = pedidoProductos;
     }
 
 @OneToMany(fetch=FetchType.LAZY, mappedBy="cliente")
-    public Set getPedidoTransportes() {
+    public Set<PedidoTransporte> getPedidoTransportes() {
         return this.pedidoTransportes;
     }
     
-    public void setPedidoTransportes(Set pedidoTransportes) {
+    public void setPedidoTransportes(Set<PedidoTransporte> pedidoTransportes) {
         this.pedidoTransportes = pedidoTransportes;
     }
 
