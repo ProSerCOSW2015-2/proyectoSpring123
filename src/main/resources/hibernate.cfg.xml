@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC "-//Hibernate/Hibernate Configuration DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+  <session-factory>
+    <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
+    <property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
+    <property name="hibernate.connection.url">jdbc:mysql://desarrollo.is.escuelaing.edu.co:3306/cosw4?zeroDateTimeBehavior=convertToNull</property>
+    <property name="hibernate.connection.username">cosw4</property>
+    <property name="hibernate.connection.password">cosw4gr44</property>
+    <mapping class="edu.eci.cosw.persistenceexercises.simplepersistencelayer.PedidoProducto"/>
+    <mapping class="edu.eci.cosw.persistenceexercises.simplepersistencelayer.Producto"/>
+    <mapping class="edu.eci.cosw.persistenceexercises.simplepersistencelayer.Transporte"/>
+    <mapping class="edu.eci.cosw.persistenceexercises.simplepersistencelayer.Cliente"/>
+    <mapping class="edu.eci.cosw.persistenceexercises.simplepersistencelayer.EnvioProducto"/>
+    <mapping class="edu.eci.cosw.persistenceexercises.simplepersistencelayer.DetallePedidoProductoId"/>
+    <mapping class="edu.eci.cosw.persistenceexercises.simplepersistencelayer.Proveedor"/>
+    <mapping class="edu.eci.cosw.persistenceexercises.simplepersistencelayer.Evaluacion"/>
+    <mapping class="edu.eci.cosw.persistenceexercises.simplepersistencelayer.Transaccion"/>
+    <mapping class="edu.eci.cosw.persistenceexercises.simplepersistencelayer.SimpleMainProgram"/>
+    <mapping class="edu.eci.cosw.persistenceexercises.simplepersistencelayer.SimplePersistenceFacade"/>
+    <mapping class="edu.eci.cosw.persistenceexercises.simplepersistencelayer.PedidoTransporte"/>
+    <mapping class="edu.eci.cosw.persistenceexercises.simplepersistencelayer.DetallePedidoProducto"/>
+  </session-factory>
+</hibernate-configuration>
