@@ -1,5 +1,5 @@
 package edu.eci.cosw.persistenceexercises.simplepersistencelayer;
-// Generated 16/10/2015 07:04:08 PM by Hibernate Tools 4.3.1
+// Generated 20/10/2015 07:04:08 PM by Hibernate Tools 4.3.1
 
 
 import java.util.HashSet;
@@ -18,6 +18,7 @@ import javax.persistence.Table;
  */
 @Entity
 @Table(name="Evaluacion"
+    ,catalog="cosw4"
 )
 public class Evaluacion  implements java.io.Serializable {
 
@@ -25,8 +26,8 @@ public class Evaluacion  implements java.io.Serializable {
      private Integer idEvaluacion;
      private String valor;
      private String comentario;
-     private Set<Transporte> transportes = new HashSet<Transporte>(0);
-     private Set<Producto> productos = new HashSet<Producto>(0);
+     private Set transportes = new HashSet(0);
+     private Set productos = new HashSet(0);
 
     public Evaluacion() {
     }
@@ -36,7 +37,7 @@ public class Evaluacion  implements java.io.Serializable {
         this.valor = valor;
         this.comentario = comentario;
     }
-    public Evaluacion(String valor, String comentario, Set<Transporte> transportes, Set<Producto> productos) {
+    public Evaluacion(String valor, String comentario, Set transportes, Set productos) {
        this.valor = valor;
        this.comentario = comentario;
        this.transportes = transportes;
@@ -75,21 +76,21 @@ public class Evaluacion  implements java.io.Serializable {
         this.comentario = comentario;
     }
 
-@OneToMany(fetch=FetchType.LAZY)
-    public Set<Transporte> getTransportes() {
+@OneToMany(fetch=FetchType.LAZY, mappedBy="evaluacion")
+    public Set getTransportes() {
         return this.transportes;
     }
     
-    public void setTransportes(Set<Transporte> transportes) {
+    public void setTransportes(Set transportes) {
         this.transportes = transportes;
     }
 
-@OneToMany(fetch=FetchType.LAZY)
-    public Set<Producto> getProductos() {
+@OneToMany(fetch=FetchType.LAZY, mappedBy="evaluacion")
+    public Set getProductos() {
         return this.productos;
     }
     
-    public void setProductos(Set<Producto> productos) {
+    public void setProductos(Set productos) {
         this.productos = productos;
     }
 

@@ -1,5 +1,5 @@
 package edu.eci.cosw.persistenceexercises.simplepersistencelayer;
-// Generated 16/10/2015 07:04:08 PM by Hibernate Tools 4.3.1
+// Generated 20/10/2015 07:04:08 PM by Hibernate Tools 4.3.1
 
 
 import java.util.HashSet;
@@ -19,11 +19,12 @@ import javax.persistence.UniqueConstraint;
  */
 @Entity
 @Table(name="Cliente"
+    ,catalog="cosw4"
     , uniqueConstraints = @UniqueConstraint(columnNames="CORREO") 
 )
 public class Cliente  implements java.io.Serializable {
 
-     private static final long serialVersionUID = 1L;
+
      private Integer idcliente;
      private String nombre;
      private String apellido;
@@ -32,8 +33,8 @@ public class Cliente  implements java.io.Serializable {
      private String direccion;
      private int telefono;
      private String correo;
-     private Set<PedidoProducto> pedidoProductos = new HashSet<PedidoProducto>(0);
-     private Set<PedidoTransporte> pedidoTransportes = new HashSet<PedidoTransporte>(0);
+     private Set pedidoProductos = new HashSet(0);
+     private Set pedidoTransportes = new HashSet(0);
 
     public Cliente() {
     }
@@ -47,7 +48,7 @@ public class Cliente  implements java.io.Serializable {
         this.telefono = telefono;
         this.correo = correo;
     }
-    public Cliente(String nombre, String apellido, String tipoDoc, int numDoc, String direccion, int telefono, String correo, Set<PedidoProducto>  pedidoProductos, Set<PedidoTransporte> pedidoTransportes) {
+    public Cliente(String nombre, String apellido, String tipoDoc, int numDoc, String direccion, int telefono, String correo, Set pedidoProductos, Set pedidoTransportes) {
        this.nombre = nombre;
        this.apellido = apellido;
        this.tipoDoc = tipoDoc;
@@ -142,20 +143,20 @@ public class Cliente  implements java.io.Serializable {
     }
 
 @OneToMany(fetch=FetchType.LAZY, mappedBy="cliente")
-    public Set<PedidoProducto> getPedidoProductos() {
+    public Set getPedidoProductos() {
         return this.pedidoProductos;
     }
     
-    public void setPedidoProductos(Set<PedidoProducto> pedidoProductos) {
+    public void setPedidoProductos(Set pedidoProductos) {
         this.pedidoProductos = pedidoProductos;
     }
 
 @OneToMany(fetch=FetchType.LAZY, mappedBy="cliente")
-    public Set<PedidoTransporte> getPedidoTransportes() {
+    public Set getPedidoTransportes() {
         return this.pedidoTransportes;
     }
     
-    public void setPedidoTransportes(Set<PedidoTransporte> pedidoTransportes) {
+    public void setPedidoTransportes(Set pedidoTransportes) {
         this.pedidoTransportes = pedidoTransportes;
     }
 

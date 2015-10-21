@@ -1,5 +1,5 @@
 package edu.eci.cosw.persistenceexercises.simplepersistencelayer;
-// Generated 16/10/2015 07:04:08 PM by Hibernate Tools 4.3.1
+// Generated 20/10/2015 07:04:08 PM by Hibernate Tools 4.3.1
 
 
 import java.util.Date;
@@ -20,23 +20,24 @@ import javax.persistence.TemporalType;
  */
 @Entity
 @Table(name="Pedido_Transporte"
+    ,catalog="cosw4"
 )
 public class PedidoTransporte  implements java.io.Serializable {
 
 
      private Integer idpedido;
      private Cliente cliente;
-     /*private Transaccion transaccion;
-     private Transporte transporte;*/
+     private Transaccion transaccion;
+     private Transporte transporte;
      private Date fecha;
 
     public PedidoTransporte() {
     }
 
-    public PedidoTransporte(Cliente cliente,/* Transaccion transaccion, Transporte transporte,*/ Date fecha) {
+    public PedidoTransporte(Cliente cliente, Transaccion transaccion, Transporte transporte, Date fecha) {
        this.cliente = cliente;
-       /*this.transaccion = transaccion;
-       this.transporte = transporte;*/
+       this.transaccion = transaccion;
+       this.transporte = transporte;
        this.fecha = fecha;
     }
    
@@ -62,7 +63,7 @@ public class PedidoTransporte  implements java.io.Serializable {
         this.cliente = cliente;
     }
 
-/*@ManyToOne(fetch=FetchType.LAZY)
+@ManyToOne(fetch=FetchType.LAZY)
     @JoinColumn(name="Transaccion_idTransaccion")
     public Transaccion getTransaccion() {
         return this.transaccion;
@@ -80,7 +81,7 @@ public class PedidoTransporte  implements java.io.Serializable {
     
     public void setTransporte(Transporte transporte) {
         this.transporte = transporte;
-    }*/
+    }
 
     @Temporal(TemporalType.TIMESTAMP)
     @Column(name="FECHA", length=19)

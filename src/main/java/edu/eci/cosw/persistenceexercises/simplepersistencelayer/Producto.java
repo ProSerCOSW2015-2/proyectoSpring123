@@ -1,5 +1,5 @@
 package edu.eci.cosw.persistenceexercises.simplepersistencelayer;
-// Generated 16/10/2015 07:04:08 PM by Hibernate Tools 4.3.1
+// Generated 20/10/2015 07:04:08 PM by Hibernate Tools 4.3.1
 
 
 import java.util.HashSet;
@@ -22,30 +22,31 @@ import javax.persistence.Table;
  */
 @Entity
 @Table(name="Producto"
+    ,catalog="cosw4"
 )
 public class Producto  implements java.io.Serializable {
 
 
      private Integer idProducto;
-     //private Evaluacion evaluacion;
+     private Evaluacion evaluacion;
      private int precio;
      private String nombre;
      private String descripcion;
-     private Set<DetallePedidoProducto> detallePedidoProductos = new HashSet<DetallePedidoProducto>(0);
-     private Set<Proveedor> proveedors = new HashSet<Proveedor>(0);
+     private Set detallePedidoProductos = new HashSet(0);
+     private Set proveedors = new HashSet(0);
 
     public Producto() {
     }
 
 	
-    public Producto(/*Evaluacion evaluacion,*/ int precio, String nombre, String descripcion) {
-        //this.evaluacion = evaluacion;
+    public Producto(Evaluacion evaluacion, int precio, String nombre, String descripcion) {
+        this.evaluacion = evaluacion;
         this.precio = precio;
         this.nombre = nombre;
         this.descripcion = descripcion;
     }
-    public Producto(/*Evaluacion evaluacion,*/ int precio, String nombre, String descripcion, Set<DetallePedidoProducto> detallePedidoProductos, Set<Proveedor> proveedors) {
-       //this.evaluacion = evaluacion;
+    public Producto(Evaluacion evaluacion, int precio, String nombre, String descripcion, Set detallePedidoProductos, Set proveedors) {
+       this.evaluacion = evaluacion;
        this.precio = precio;
        this.nombre = nombre;
        this.descripcion = descripcion;
@@ -65,7 +66,7 @@ public class Producto  implements java.io.Serializable {
         this.idProducto = idProducto;
     }
 
-/*@ManyToOne(fetch=FetchType.LAZY)
+@ManyToOne(fetch=FetchType.LAZY)
     @JoinColumn(name="Evaluacion_idEvaluacion", nullable=false)
     public Evaluacion getEvaluacion() {
         return this.evaluacion;
@@ -74,7 +75,7 @@ public class Producto  implements java.io.Serializable {
     public void setEvaluacion(Evaluacion evaluacion) {
         this.evaluacion = evaluacion;
     }
-*/
+
     
     @Column(name="precio", nullable=false)
     public int getPrecio() {
@@ -106,23 +107,23 @@ public class Producto  implements java.io.Serializable {
     }
 
 @OneToMany(fetch=FetchType.LAZY, mappedBy="producto")
-    public Set<DetallePedidoProducto> getDetallePedidoProductos() {
+    public Set getDetallePedidoProductos() {
         return this.detallePedidoProductos;
     }
     
-    public void setDetallePedidoProductos(Set<DetallePedidoProducto> detallePedidoProductos) {
+    public void setDetallePedidoProductos(Set detallePedidoProductos) {
         this.detallePedidoProductos = detallePedidoProductos;
     }
 
-@ManyToMany(fetch=FetchType.LAZY, mappedBy="producto")
-    @JoinTable(name="Producto_has_Proveedor", /*catalog="cosw4",*/ joinColumns = { 
+@ManyToMany(fetch=FetchType.LAZY)
+    @JoinTable(name="Producto_has_Proveedor", catalog="cosw4", joinColumns = { 
         @JoinColumn(name="Producto_idProducto", nullable=false, updatable=false) }, inverseJoinColumns = { 
         @JoinColumn(name="Proveedor_idProveedor", nullable=false, updatable=false) })
-    public Set<Proveedor> getProveedors() {
+    public Set getProveedors() {
         return this.proveedors;
     }
     
-    public void setProveedors(Set<Proveedor> proveedores) {
+    public void setProveedors(Set proveedors) {
         this.proveedors = proveedors;
     }
 

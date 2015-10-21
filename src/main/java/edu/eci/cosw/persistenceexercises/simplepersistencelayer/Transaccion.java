@@ -1,5 +1,5 @@
 package edu.eci.cosw.persistenceexercises.simplepersistencelayer;
-// Generated 16/10/2015 07:04:08 PM by Hibernate Tools 4.3.1
+// Generated 20/10/2015 07:04:08 PM by Hibernate Tools 4.3.1
 
 
 import java.util.Date;
@@ -21,6 +21,7 @@ import javax.persistence.TemporalType;
  */
 @Entity
 @Table(name="Transaccion"
+    ,catalog="cosw4"
 )
 public class Transaccion  implements java.io.Serializable {
 
@@ -28,8 +29,8 @@ public class Transaccion  implements java.io.Serializable {
      private Integer idTransaccion;
      private boolean aprobacion;
      private Date fecha;
-     private Set<PedidoTransporte> pedidoTransportes = new HashSet<PedidoTransporte>(0);
-     private Set<PedidoProducto> pedidoProductos = new HashSet<PedidoProducto>(0);
+     private Set pedidoTransportes = new HashSet(0);
+     private Set pedidoProductos = new HashSet(0);
 
     public Transaccion() {
     }
@@ -39,7 +40,7 @@ public class Transaccion  implements java.io.Serializable {
         this.aprobacion = aprobacion;
         this.fecha = fecha;
     }
-    public Transaccion(boolean aprobacion, Date fecha, Set<PedidoTransporte> pedidoTransportes, Set<PedidoProducto> pedidoProductos) {
+    public Transaccion(boolean aprobacion, Date fecha, Set pedidoTransportes, Set pedidoProductos) {
        this.aprobacion = aprobacion;
        this.fecha = fecha;
        this.pedidoTransportes = pedidoTransportes;
@@ -78,21 +79,21 @@ public class Transaccion  implements java.io.Serializable {
         this.fecha = fecha;
     }
 
-@OneToMany(fetch=FetchType.LAZY)
-    public Set<PedidoTransporte> getPedidoTransportes() {
+@OneToMany(fetch=FetchType.LAZY, mappedBy="transaccion")
+    public Set getPedidoTransportes() {
         return this.pedidoTransportes;
     }
     
-    public void setPedidoTransportes(Set<PedidoTransporte> pedidoTransportes) {
+    public void setPedidoTransportes(Set pedidoTransportes) {
         this.pedidoTransportes = pedidoTransportes;
     }
 
-@OneToMany(fetch=FetchType.LAZY)
-    public Set<PedidoProducto> getPedidoProductos() {
+@OneToMany(fetch=FetchType.LAZY, mappedBy="transaccion")
+    public Set getPedidoProductos() {
         return this.pedidoProductos;
     }
     
-    public void setPedidoProductos(Set<PedidoProducto> pedidoProductos) {
+    public void setPedidoProductos(Set pedidoProductos) {
         this.pedidoProductos = pedidoProductos;
     }
 

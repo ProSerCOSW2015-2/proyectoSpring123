@@ -1,5 +1,5 @@
 package edu.eci.cosw.persistenceexercises.simplepersistencelayer;
-// Generated 16/10/2015 07:04:08 PM by Hibernate Tools 4.3.1
+// Generated 20/10/2015 07:04:08 PM by Hibernate Tools 4.3.1
 
 
 import java.util.HashSet;
@@ -21,6 +21,7 @@ import javax.persistence.Table;
  */
 @Entity
 @Table(name="Proveedor"
+    ,catalog="cosw4"
 )
 public class Proveedor  implements java.io.Serializable {
 
@@ -29,8 +30,8 @@ public class Proveedor  implements java.io.Serializable {
      private String nombre;
      private String direccion;
      private String telefono;
-     private Set<Producto> productos = new HashSet<Producto>(0);
-     private Set<Transporte> transportes = new HashSet<Transporte>(0);
+     private Set productos = new HashSet(0);
+     private Set transportes = new HashSet(0);
 
     public Proveedor() {
     }
@@ -41,7 +42,7 @@ public class Proveedor  implements java.io.Serializable {
         this.direccion = direccion;
         this.telefono = telefono;
     }
-    public Proveedor(String nombre, String direccion, String telefono, Set<Producto> productos, Set<Transporte> transportes) {
+    public Proveedor(String nombre, String direccion, String telefono, Set productos, Set transportes) {
        this.nombre = nombre;
        this.direccion = direccion;
        this.telefono = telefono;
@@ -91,24 +92,24 @@ public class Proveedor  implements java.io.Serializable {
         this.telefono = telefono;
     }
 
-@ManyToMany(fetch=FetchType.LAZY, mappedBy="proveedor")
-    /*@JoinTable(name="Producto_has_Proveedor", catalog="cosw4", joinColumns = { 
+@ManyToMany(fetch=FetchType.LAZY)
+    @JoinTable(name="Producto_has_Proveedor", catalog="cosw4", joinColumns = { 
         @JoinColumn(name="Proveedor_idProveedor", nullable=false, updatable=false) }, inverseJoinColumns = { 
-        @JoinColumn(name="Producto_idProducto", nullable=false, updatable=false) })*/
-    public Set<Producto> getProductos() {
+        @JoinColumn(name="Producto_idProducto", nullable=false, updatable=false) })
+    public Set getProductos() {
         return this.productos;
     }
     
-    public void setProductos(Set<Producto> productos) {
+    public void setProductos(Set productos) {
         this.productos = productos;
     }
 
 @OneToMany(fetch=FetchType.LAZY, mappedBy="proveedor")
-    public Set<Transporte> getTransportes() {
+    public Set getTransportes() {
         return this.transportes;
     }
     
-    public void setTransportes(Set<Transporte> transportes) {
+    public void setTransportes(Set transportes) {
         this.transportes = transportes;
     }
 
