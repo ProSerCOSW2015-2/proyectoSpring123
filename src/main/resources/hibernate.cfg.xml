@@ -16,8 +16,6 @@
     <mapping class="edu.eci.cosw.proyecto.model.Proveedor"/>
     <mapping class="edu.eci.cosw.proyecto.model.Evaluacion"/>
     <mapping class="edu.eci.cosw.proyecto.model.Transaccion"/>
-    <mapping class="edu.eci.cosw.proyecto.model.SimpleMainProgram"/>
-    <mapping class="edu.eci.cosw.proyecto.model.SimplePersistenceFacade"/>
     <mapping class="edu.eci.cosw.proyecto.model.PedidoTransporte"/>
     <mapping class="edu.eci.cosw.proyecto.model.DetallePedidoProducto"/>
   </session-factory>
