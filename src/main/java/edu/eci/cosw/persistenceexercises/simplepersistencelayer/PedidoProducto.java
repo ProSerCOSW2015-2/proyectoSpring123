@@ -1,5 +1,5 @@
 package edu.eci.cosw.persistenceexercises.simplepersistencelayer;
-// Generated 20/10/2015 07:04:08 PM by Hibernate Tools 4.3.1
+// Generated 16/10/2015 07:04:08 PM by Hibernate Tools 4.3.1
 
 
 import java.util.Date;
@@ -23,30 +23,29 @@ import javax.persistence.TemporalType;
  */
 @Entity
 @Table(name="Pedido_Producto"
-    ,catalog="cosw4"
 )
 public class PedidoProducto  implements java.io.Serializable {
 
 
      private Integer idpedido;
      private Cliente cliente;
-     private Transaccion transaccion;
+     //private Transaccion transaccion;
      private Date fecha;
-     private Set envioProductos = new HashSet(0);
-     private Set detallePedidoProductos = new HashSet(0);
+     private Set<EnvioProducto> envioProductos = new HashSet<EnvioProducto>(0);
+     private Set<DetallePedidoProducto> detallePedidoProductos = new HashSet<DetallePedidoProducto>(0);
 
     public PedidoProducto() {
     }
 
 	
-    public PedidoProducto(Cliente cliente, Transaccion transaccion, Date fecha) {
+    public PedidoProducto(Cliente cliente, /*Transaccion transaccion,*/ Date fecha) {
         this.cliente = cliente;
-        this.transaccion = transaccion;
+        /*this.transaccion = transaccion;*/
         this.fecha = fecha;
     }
-    public PedidoProducto(Cliente cliente, Transaccion transaccion, Date fecha, Set envioProductos, Set detallePedidoProductos) {
+    public PedidoProducto(Cliente cliente, /*Transaccion transaccion,*/ Date fecha, Set<EnvioProducto> envioProductos, Set<DetallePedidoProducto> detallePedidoProductos) {
        this.cliente = cliente;
-       this.transaccion = transaccion;
+       //this.transaccion = transaccion;
        this.fecha = fecha;
        this.envioProductos = envioProductos;
        this.detallePedidoProductos = detallePedidoProductos;
@@ -74,7 +73,7 @@ public class PedidoProducto  implements java.io.Serializable {
         this.cliente = cliente;
     }
 
-@ManyToOne(fetch=FetchType.LAZY)
+/*@ManyToOne(fetch=FetchType.LAZY)
     @JoinColumn(name="Transaccion_idTransaccion", nullable=false)
     public Transaccion getTransaccion() {
         return this.transaccion;
@@ -83,7 +82,8 @@ public class PedidoProducto  implements java.io.Serializable {
     public void setTransaccion(Transaccion transaccion) {
         this.transaccion = transaccion;
     }
-
+*/
+    
     @Temporal(TemporalType.TIMESTAMP)
     @Column(name="FECHA", nullable=false, length=19)
     public Date getFecha() {
@@ -94,21 +94,21 @@ public class PedidoProducto  implements java.io.Serializable {
         this.fecha = fecha;
     }
 
-@OneToMany(fetch=FetchType.LAZY, mappedBy="pedidoProducto")
-    public Set getEnvioProductos() {
+@OneToMany(fetch=FetchType.LAZY)
+    public Set<EnvioProducto> getEnvioProductos() {
         return this.envioProductos;
     }
     
-    public void setEnvioProductos(Set envioProductos) {
+    public void setEnvioProductos(Set<EnvioProducto> envioProductos) {
         this.envioProductos = envioProductos;
     }
 
-@OneToMany(fetch=FetchType.LAZY, mappedBy="pedidoProducto")
-    public Set getDetallePedidoProductos() {
+@OneToMany(fetch=FetchType.LAZY)
+    public Set<DetallePedidoProducto> getDetallePedidoProductos() {
         return this.detallePedidoProductos;
     }
     
-    public void setDetallePedidoProductos(Set detallePedidoProductos) {
+    public void setDetallePedidoProductos(Set<DetallePedidoProducto> detallePedidoProductos) {
         this.detallePedidoProductos = detallePedidoProductos;
     }
 

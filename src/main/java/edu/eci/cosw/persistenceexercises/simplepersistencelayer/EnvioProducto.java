@@ -1,5 +1,5 @@
 package edu.eci.cosw.persistenceexercises.simplepersistencelayer;
-// Generated 20/10/2015 07:04:08 PM by Hibernate Tools 4.3.1
+// Generated 16/10/2015 07:04:08 PM by Hibernate Tools 4.3.1
 
 
 import java.util.Date;
@@ -20,13 +20,12 @@ import javax.persistence.TemporalType;
  */
 @Entity
 @Table(name="Envio_Producto"
-    ,catalog="cosw4"
 )
 public class EnvioProducto  implements java.io.Serializable {
 
 
      private Integer idenvio;
-     private PedidoProducto pedidoProducto;
+     //private PedidoProducto pedidoProducto;
      private Date fecha;
      private Date horasalida;
      private String estado;
@@ -34,8 +33,8 @@ public class EnvioProducto  implements java.io.Serializable {
     public EnvioProducto() {
     }
 
-    public EnvioProducto(PedidoProducto pedidoProducto, Date fecha, Date horasalida, String estado) {
-       this.pedidoProducto = pedidoProducto;
+    public EnvioProducto(/*PedidoProducto pedidoProducto,*/ Date fecha, Date horasalida, String estado) {
+       //this.pedidoProducto = pedidoProducto;
        this.fecha = fecha;
        this.horasalida = horasalida;
        this.estado = estado;
@@ -53,7 +52,7 @@ public class EnvioProducto  implements java.io.Serializable {
         this.idenvio = idenvio;
     }
 
-@ManyToOne(fetch=FetchType.LAZY)
+/*@ManyToOne(fetch=FetchType.LAZY)
     @JoinColumn(name="Pedido_IDPEDIDO", nullable=false)
     public PedidoProducto getPedidoProducto() {
         return this.pedidoProducto;
@@ -61,7 +60,7 @@ public class EnvioProducto  implements java.io.Serializable {
     
     public void setPedidoProducto(PedidoProducto pedidoProducto) {
         this.pedidoProducto = pedidoProducto;
-    }
+    }*/
 
     @Temporal(TemporalType.DATE)
     @Column(name="FECHA", nullable=false, length=10)

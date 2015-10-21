@@ -1,5 +1,5 @@
 package edu.eci.cosw.persistenceexercises.simplepersistencelayer;
-// Generated 20/10/2015 07:04:08 PM by Hibernate Tools 4.3.1
+// Generated 16/10/2015 07:04:08 PM by Hibernate Tools 4.3.1
 
 
 import javax.persistence.AttributeOverride;
@@ -17,7 +17,6 @@ import javax.persistence.Table;
  */
 @Entity
 @Table(name="Detalle_Pedido_Producto"
-    ,catalog="cosw4"
 )
 public class DetallePedidoProducto  implements java.io.Serializable {
 

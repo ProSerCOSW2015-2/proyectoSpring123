@@ -1,5 +1,5 @@
 package edu.eci.cosw.persistenceexercises.simplepersistencelayer;
-// Generated 20/10/2015 07:04:08 PM by Hibernate Tools 4.3.1
+// Generated 16/10/2015 07:04:08 PM by Hibernate Tools 4.3.1
 
 
 import java.util.HashSet;
@@ -20,33 +20,32 @@ import javax.persistence.Table;
  */
 @Entity
 @Table(name="Transporte"
-    ,catalog="cosw4"
 )
 public class Transporte  implements java.io.Serializable {
 
 
      private Integer idTransporte;
-     private Evaluacion evaluacion;
-     private Proveedor proveedor;
+     //private Evaluacion evaluacion;
+    // private Proveedor proveedor;
      private String tipo;
      private String placa;
      private int precio;
-     private Set pedidoTransportes = new HashSet(0);
+     private Set<PedidoTransporte> pedidoTransportes = new HashSet<PedidoTransporte>(0);
 
     public Transporte() {
     }
 
 	
-    public Transporte(Evaluacion evaluacion, Proveedor proveedor, String tipo, String placa, int precio) {
-        this.evaluacion = evaluacion;
-        this.proveedor = proveedor;
+    public Transporte(/*Evaluacion evaluacion, Proveedor proveedor,*/ String tipo, String placa, int precio) {
+       /* this.evaluacion = evaluacion;
+        this.proveedor = proveedor;*/
         this.tipo = tipo;
         this.placa = placa;
         this.precio = precio;
     }
-    public Transporte(Evaluacion evaluacion, Proveedor proveedor, String tipo, String placa, int precio, Set pedidoTransportes) {
-       this.evaluacion = evaluacion;
-       this.proveedor = proveedor;
+    public Transporte(/*Evaluacion evaluacion, Proveedor proveedor,*/ String tipo, String placa, int precio, Set<PedidoTransporte> pedidoTransportes) {
+       /*this.evaluacion = evaluacion;
+       this.proveedor = proveedor;*/
        this.tipo = tipo;
        this.placa = placa;
        this.precio = precio;
@@ -65,7 +64,7 @@ public class Transporte  implements java.io.Serializable {
         this.idTransporte = idTransporte;
     }
 
-@ManyToOne(fetch=FetchType.LAZY)
+/*@ManyToOne(fetch=FetchType.LAZY)
     @JoinColumn(name="Evaluacion_idEvaluacion", nullable=false)
     public Evaluacion getEvaluacion() {
         return this.evaluacion;
@@ -83,7 +82,7 @@ public class Transporte  implements java.io.Serializable {
     
     public void setProveedor(Proveedor proveedor) {
         this.proveedor = proveedor;
-    }
+    }*/
 
     
     @Column(name="tipo", nullable=false, length=15)
@@ -115,12 +114,12 @@ public class Transporte  implements java.io.Serializable {
         this.precio = precio;
     }
 
-@OneToMany(fetch=FetchType.LAZY, mappedBy="transporte")
-    public Set getPedidoTransportes() {
+@OneToMany(fetch=FetchType.LAZY)
+    public Set<PedidoTransporte> getPedidoTransportes() {
         return this.pedidoTransportes;
     }
     
-    public void setPedidoTransportes(Set pedidoTransportes) {
+    public void setPedidoTransportes(Set<PedidoTransporte> pedidoTransportes) {
         this.pedidoTransportes = pedidoTransportes;
     }
 
