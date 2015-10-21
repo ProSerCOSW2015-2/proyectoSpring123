@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package edu.eci.cosw.persistenceexercises.simplepersistencelayer;
+package edu.eci.cosw.proyecto.model;
 
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -29,7 +29,7 @@ public class SimpleMainProgram {
         Session session=sessionFactory.openSession();        
         Transaction tx=session.beginTransaction();
 
-        //SimplePersistenceFacade.operacionASerUtilizada(p1,p2);
+        
         
         tx.commit();
         session.close();

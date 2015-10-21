@@ -1,5 +1,5 @@
-package edu.eci.cosw.persistenceexercises.simplepersistencelayer;
-// Generated 20/10/2015 07:04:08 PM by Hibernate Tools 4.3.1
+package edu.eci.cosw.proyecto.model;
+// Generated 16/10/2015 07:04:08 PM by Hibernate Tools 4.3.1
 
 
 import java.util.HashSet;

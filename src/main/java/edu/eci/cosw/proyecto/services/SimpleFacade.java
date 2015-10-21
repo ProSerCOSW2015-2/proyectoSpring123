@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package edu.eci.cosw.persistenceexercises.simplepersistencelayer;
+package edu.eci.cosw.proyecto.services;
 
 
 import java.sql.Date;
@@ -13,7 +13,7 @@ import org.hibernate.Session;
  *
  * @author hcadavid
  */
-public class SimplePersistenceFacade {
+public class SimpleFacade {
 
     
     //implementar las operaciones indicadas en cada punto
