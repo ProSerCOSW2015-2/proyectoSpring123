@@ -9,7 +9,19 @@
     <property name="hibernate.show_sql">true</property>
     
     <!-- Aqui agregar las clases mapeadas-->
-
+    <mapping class="edu.eci.cosw.persistenceexercises.simplepersistencelayer.PedidoProducto"/>
+    <mapping class="edu.eci.cosw.persistenceexercises.simplepersistencelayer.Producto"/>
+    <mapping class="edu.eci.cosw.persistenceexercises.simplepersistencelayer.Transporte"/>
+    <mapping class="edu.eci.cosw.persistenceexercises.simplepersistencelayer.Cliente"/>
+    <mapping class="edu.eci.cosw.persistenceexercises.simplepersistencelayer.EnvioProducto"/>
+    <mapping class="edu.eci.cosw.persistenceexercises.simplepersistencelayer.DetallePedidoProductoId"/>
+    <mapping class="edu.eci.cosw.persistenceexercises.simplepersistencelayer.Proveedor"/>
+    <mapping class="edu.eci.cosw.persistenceexercises.simplepersistencelayer.Evaluacion"/>
+    <mapping class="edu.eci.cosw.persistenceexercises.simplepersistencelayer.Transaccion"/>
+    <mapping class="edu.eci.cosw.persistenceexercises.simplepersistencelayer.SimpleMainProgram"/>
+    <mapping class="edu.eci.cosw.persistenceexercises.simplepersistencelayer.SimplePersistenceFacade"/>
+    <mapping class="edu.eci.cosw.persistenceexercises.simplepersistencelayer.PedidoTransporte"/>
+    <mapping class="edu.eci.cosw.persistenceexercises.simplepersistencelayer.DetallePedidoProducto"/>
 
     </session-factory>  
 </hibernate-configuration>
