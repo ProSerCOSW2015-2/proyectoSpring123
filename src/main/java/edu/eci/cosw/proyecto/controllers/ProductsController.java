@@ -5,7 +5,9 @@
  */
 package edu.eci.cosw.proyecto.controllers;
 
+import edu.eci.cosw.proyecto.logica.Logica;
 import edu.eci.cosw.proyecto.model.Producto;
+import edu.eci.cosw.proyecto.model.Proveedor;
 import edu.eci.cosw.proyecto.services.SimpleFacade;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,31 +27,36 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/products")
 public class ProductsController {
     
-    /*@Autowired
-    SimpleFacade services;
+    @Autowired
+    Logica logica;
     
     
+    /**
+     * 
+     * @return prueba rest api
+     */
     @RequestMapping(value="/check",method = RequestMethod.GET)        
     public String check() {
-        return "REST API OK";        
+        return "Servidor Rest corriendo";        
     }
     
-    @RequestMapping(method = RequestMethod.POST)        
+    /*@RequestMapping(method = RequestMethod.POST)        
     public ResponseEntity<?> addProduct(@RequestBody Producto p) {       
         services.addNewProduct(p);
         return new ResponseEntity<>(HttpStatus.ACCEPTED);
-    }
+    }*/
+   
     
-    @RequestMapping(method = RequestMethod.GET)        
-    public List<Producto> allProducts() {        
-        return services.getAllProducts();
+    /**
+     * 
+     * @return lista con todos los proveedores
+     */
+    @RequestMapping(value="/proveedor",method = RequestMethod.GET)        
+    public List<Proveedor> consultarProveedores() {  
+        return logica.consultarProveedores();
     }
+   
     
-    @RequestMapping(value="/{prodid}",method = RequestMethod.GET)        
-    public Producto getProduct(@PathVariable("prodid") int prodid) {        
-        return services.getProduct(prodid);
-    }
-    */
     
 }
 
