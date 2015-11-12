@@ -1,12 +1,3 @@
-<<<<<<< HEAD
-<div ng-controller="skcontroller">
-
-    <h1> Transporte:</h1>
-
-    
-</div>
-
-=======
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -19,10 +10,6 @@
 	<link href="css/lightbox.css" rel="stylesheet">
 	<link href='http://fonts.googleapis.com/css?family=Poppins:400,600,700,500,300' rel='stylesheet' type='text/css'>
 	<link href='http://fonts.googleapis.com/css?family=Roboto:400,900italic,900,700italic,700,400italic,500,500italic,300,100italic,100,300italic' rel='stylesheet' type='text/css'>
-        <script src="js/libs/angular.min.js"></script>
-        <script src="js/libs/angular-route.min.js"></script>
-        <script src="js/app/serviciosProySer.js"></script>
-        <script src="js/app/controlador.js"></script>       
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -33,7 +20,7 @@
 
 
 </head>
-<body ng-app="proyser">
+<body>
 <header class="header">
 	<div class="container">
 		<div class="row">
@@ -76,32 +63,13 @@
 	</div>
 </div>
 
-<div class="container-fluid features" id="section2" ng-controller="proysercontroller">
+<div class="container-fluid features" id="section2">
 	<div class="container">
 		<div class="row">
 			<div class="col-md-12">
 				<h2 class="text-center features-text" style="color:white;">Proveedores de Transporte</h2>
 				
 			</div>
-                    
-                    <div class="col-sm-6" style="background-color:lavender; margin-left:27%;">
-
-                <table class="table table-striped" style="cursor: pointer;">
-                    <thead>
-                        <tr>
-                            <th>Nombre del Proveedor</th>  
-                            <th>Ver</th> 
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr ng-repeat="prod in availableProducts" ng-click="setSelectedProduct(prod.idproducto)">                            
-                            <td>{{ prod.nombre}}</td>
-                            <td><a href="#">Ver</a></td>
-                        </tr>
-                    </tbody>
-                </table>
-
-            </div>
 			</div>
 		</div>
 	</div>
@@ -242,4 +210,3 @@
   	</script>
 </body>
 </html>
->>>>>>> Cambios plantilla funcionalidad/rest proveedores

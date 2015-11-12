@@ -1,42 +1,26 @@
 (function () {
-    var app = angular.module('ShoppingKart', ['ngRoute','ProductServices']);
+    var app = angular.module('proyser', ['ngRoute','ProductServices']);
     
-    app.factory('productsSelectionFactory', function () {
-        var data = {
-            prodselection: []
-        };
-        return {
-            getData: function () {
-            return data.prodselection;
-            },
-            addProduct: function (product) {
-                data.prodselection.push(product);
-            }
-        };
-    });
-
-    app.config(function ($routeProvider) {
+    /*app.config(function ($routeProvider) {
         $routeProvider
-                .when('/registrar', {
-                    templateUrl: 'registrar.html'
+                .when('/alimentacion', {
+                    templateUrl: 'alimentacion.html'
                 })                
-                .when('/producto', {
-                    templateUrl: 'producto.html'
-                })
                 .when('/transporte', {
                     templateUrl: 'transporte.html'
                 })
-                .when('/home', {
-                    templateUrl: 'home.html'                 
-                });
-    });
+                .when('/articulos', {
+                    templateUrl: 'articulos.html'
+                })
+                
+    });*/
 
 
-    app.controller('skcontroller', function ($scope,ProductsRestAPI, productsSelectionFactory) {
+    app.controller('proysercontroller', function ($scope,ProductsRestAPI) {
         
-        /*$scope.availableProducts=[];
+        $scope.availableProducts=[];
         
-        $scope.selectedProducts=productsSelectionFactory.getData();
+        //$scope.selectedProducts=productsSelectionFactory.getData();
         
         $scope.selectedProductId=-1;
 
@@ -46,15 +30,15 @@
         
         $scope.myVar = true;
         
-        $scope.costoTotal = ProductsRestAPI.calculateShoppingKartCost($scope.selectedProducts);
+        //$scope.costoTotal = ProductsRestAPI.calculateShoppingKartCost($scope.selectedProducts);
         
-        $scope.addToSelectedProducts=function(){   
+        /*$scope.addToSelectedProducts=function(){   
             
             //$scope.selectedProducts.push($scope.selectedProductDetail);
             productsSelectionFactory.addProduct($scope.selectedProductDetail);
             console.log('Shopping kart updated'+JSON.stringify($scope.selectedProducts));
             
-        };
+        };*/
         
         $scope.availableProdRequestPromise.then(
                 //promise success
@@ -68,7 +52,7 @@
                 }
         );
 
-        $scope.setSelectedProduct=function(idprod){
+        /*$scope.setSelectedProduct=function(idprod){
             $scope.selectedProductId=idprod;
             $scope.myVar = false;
             ProductsRestAPI.productByIdRequestPromise(idprod).then(
@@ -92,5 +76,6 @@
     );
 
 })();
+
 
 
