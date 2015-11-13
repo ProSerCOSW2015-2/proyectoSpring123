@@ -24,7 +24,7 @@ public class Principal {
     Logica logica = (Logica) contexto.getBean(Logica.class);
     
    
-   logica.agregarCliente("nicolas", "apellido","cc", 12345, "hfkjshbdfl", 1234567, "nikodl@hotmail.com");
+  // logica.agregarCliente("nicolas", "apellido","cc", 12345, "hfkjshbdfl", 1234567, "nikodl@hotmail.com");
  }
  
 

@@ -155,10 +155,10 @@ public class Logica {
         }
     };
 
-    public void agregarCliente(String nombre, String apellido, String tDoc, int documento,String direccion, int telefono, String correo ) {
+    public void agregarCliente(String nombre, String apellido, String tDoc, int documento,String direccion, int telefono, String correo, String contraseña ) {
          List<Cliente> clientes = cr.search("%"+correo+"%");
         if(clientes.size() <= 0){
-            Cliente c = new Cliente(nombre, tDoc, documento, direccion, telefono, correo);
+            Cliente c = new Cliente(nombre,apellido, tDoc, documento, direccion, telefono, correo, contraseña);
             cr.save(c);
         }else{
             System.out.println("El usuario ya existe, porfavor revise los datos ingresados y vlueva a intentarlo");

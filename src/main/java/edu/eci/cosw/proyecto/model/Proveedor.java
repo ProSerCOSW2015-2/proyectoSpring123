@@ -29,6 +29,7 @@ public class Proveedor  implements java.io.Serializable {
      private String nombre;
      private String direccion;
      private String telefono;
+     private int tipo;
      private Set<Producto> productos = new HashSet<Producto>(0);
      private Set<Transporte> transportes = new HashSet<Transporte>(0);
 
@@ -36,10 +37,11 @@ public class Proveedor  implements java.io.Serializable {
     }
 
 	
-    public Proveedor(String nombre, String direccion, String telefono) {
+    public Proveedor(String nombre, String direccion, String telefono, int tipo) {
         this.nombre = nombre;
         this.direccion = direccion;
         this.telefono = telefono;
+        this.tipo = tipo;
     }
     public Proveedor(String nombre, String direccion, String telefono, Set<Producto> productos, Set<Transporte> transportes) {
        this.nombre = nombre;
@@ -89,6 +91,15 @@ public class Proveedor  implements java.io.Serializable {
     
     public void setTelefono(String telefono) {
         this.telefono = telefono;
+    }
+    
+    @Column(name="tipo", nullable=false, length=45)
+    public int getTipo() {
+        return this.tipo;
+    }
+    
+    public void setTipo(int tipo) {
+        this.tipo = tipo;
     }
 
 @ManyToMany(fetch=FetchType.LAZY)

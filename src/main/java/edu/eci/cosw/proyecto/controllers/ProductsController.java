@@ -40,14 +40,7 @@ public class ProductsController {
     public String check() {
         return "Servidor Rest corriendo";        
     }
-    
-    /*@RequestMapping(method = RequestMethod.POST)        
-    public ResponseEntity<?> addProduct(@RequestBody Producto p) {       
-        services.addNewProduct(p);
-        return new ResponseEntity<>(HttpStatus.ACCEPTED);
-    }*/
-   
-    
+      
     /**
      * 
      * @return lista con todos los proveedores

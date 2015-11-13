@@ -41,7 +41,7 @@ public class RegistraClienteController {
     
     @RequestMapping(value="/guardar",method = RequestMethod.POST)
     public ResponseEntity<?> registrarCliente(@RequestBody Cliente cliente ){
-        logica.agregarCliente(cliente.getNombre(),cliente.getApellido(),cliente.getTipoDoc(),cliente.getNumDoc(),cliente.getDireccion(),cliente.getTelefono(),cliente.getCorreo()); 
+        logica.agregarCliente(cliente.getNombre(),cliente.getApellido(),cliente.getTipoDoc(),cliente.getNumDoc(),cliente.getDireccion(),cliente.getTelefono(),cliente.getCorreo(), cliente.getContraseña()); 
         return new ResponseEntity<>(HttpStatus.CREATED);
     }  
     

@@ -20,16 +20,21 @@
         
         $scope.availableProducts=[];
         
-        $scope.nombre="nicolas";
-        $scope.apellido="cantor";
-        $scope.tipodoc = "cc";
-        $scope.numDoc = 123455;
-        $scope.direccion = "calle123 #123-5";
-        $scope.telefono = 12345;
-        $scope.correo = "niolas@hotmail.com";
-        $scope.cont = "1234";
-        $scope.cont1 = "1234";
+        $scope.nombre="";
+        $scope.apellido="";
+        $scope.numDoc;
+        $scope.direccion = "";
+        $scope.telefono;
+        $scope.correo = "";
+        $scope.contra = "";
+        $scope.contra1 = "";
         $scope.id = 1;
+        $scope.operators = 
+	{   
+		"value": "C.C", 
+		"values": ["C.C", "C.E", "Pasaporte"] 
+	};
+        $scope.myOptions;
                
         $scope.availableProdRequestPromise=ProductsRestAPI.productsRequestPromise();
       
@@ -47,21 +52,26 @@
 
 
         $scope.registrarCliente = function(){
-            alert($scope.nombre);
-            ProductsRestAPI.registrarCliente($scope.id,$scope.nombre,$scope.apellido,$scope.tipodoc,$scope.numDoc,$scope.direccion,$scope.telefono,$scope.correo).then(
-                    //promise success
-                    
-                function(response){
-                    console.log(response.data);                    
-                    //$scope.availableProducts=response.data;  
-                    alert("usuario creado correctamente");
-                },
-                //promise error
-                function(response){
-                    console.log('Unable to get data from REST API:'+response.data);
-                    alert("error");
+                if($scope.contra != $scope.contra1){
+                    alert("Las contraseñas no coinciden");
+                }else{
+                    ProductsRestAPI.registrarCliente($scope.id,$scope.nombre,$scope.apellido,$scope.operators.value,$scope.numDoc,$scope.direccion,$scope.telefono,$scope.correo, $scope.contra).then(
+                            //promise success
+
+                        function(response){
+                            console.log(response.data);                    
+                            //$scope.availableProducts=response.data;  
+                            alert("usuario creado correctamente");
+                        },
+                        //promise error
+                        function(response){
+                            console.log('Unable to get data from REST API:'+response.data);
+                            alert("error");
+                        }
+                    )
                 }
-            )
+    
+            
  
         }
         

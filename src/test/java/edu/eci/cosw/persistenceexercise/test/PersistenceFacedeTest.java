@@ -44,24 +44,24 @@ public class PersistenceFacedeTest {
         {
             // insert
             //Pre cargar 5 usuarios iniciales para las pruebas
-            cr.save(new Cliente("jairo", "cc", 123456789, "calle 170 # 64-54", 6366007, "jairo@hotmail.com"));
-            cr.save(new Cliente("julian", "cc", 123456789, "calle 170 # 64-54", 6366007, "julian@hotmail.com"));
-            cr.save(new Cliente("camilo", "cc", 123456789, "calle 170 # 64-54", 6366007, "camilo@hotmail.com"));
-            cr.save(new Cliente("fabian", "cc", 123456789, "calle 170 # 64-54", 6366007, "fabian@hotmail.com"));
-            cr.save(new Cliente("nicolas", "cc", 123456789, "calle 170 # 64-54", 6366007, "nicolas@hotmail.com"));
+            cr.save(new Cliente("jairo", "g", "cc", 123456789, "calle 170 # 64-54", 6366007, "jairo@hotmail.com", "123"));
+            cr.save(new Cliente("julian", "g", "cc", 123456789, "calle 170 # 64-54", 6366007, "julian@hotmail.com", "123"));
+            cr.save(new Cliente("camilo", "g", "cc", 123456789, "calle 170 # 64-54", 6366007, "fabian@hotmail.com", "123"));
+            cr.save(new Cliente("nicolas", "g","cc", 123456789, "calle 170 # 64-54", 6366007, "nicolas@hotmail.com", "123"));
             springInit = true;
         }
+
     }
     
     
    @Test
    public void testGuardarCliente (){
        //Agregag a un nuevo cliente a la base de datos
-       logica.agregarCliente("rolo", "loco", "cc", 1019028392, "calle 170 #65-54", 6366007,"rolo@hotmail.com");
+       logica.agregarCliente("rolo", "loco", "cc", 1019028392, "calle 170 #65-54", 6366007,"rolo@hotmail.com","123");
        assertEquals("Se a agregado un nuevo cliente a la persistencia",6, cr.count());
        
        //Si se intenta agregar a un cliente con un correo que ya existe no debe agregar nada a la base de datos
-       logica.agregarCliente("rolo", "loco", "cc", 1019028392, "calle 170 #65-54", 6366007,"rolo@hotmail.com");
+       logica.agregarCliente("rolo", "loco", "cc", 1019028392, "calle 170 #65-54", 6366007,"rolo@hotmail.com", "123");
        assertEquals("Una persona con el mismo correo no debe ser agregada",6, cr.count());
    }
 }

@@ -32,6 +32,7 @@ public class Cliente  implements java.io.Serializable {
      private String direccion;
      private int telefono;
      private String correo;
+     private String contraseña;
      private Set<PedidoProducto> pedidoProductos = new HashSet<PedidoProducto>(0);
      private Set<PedidoTransporte> pedidoTransportes = new HashSet<PedidoTransporte>(0);
 
@@ -39,13 +40,15 @@ public class Cliente  implements java.io.Serializable {
     }
 
 	
-    public Cliente(String nombre, String tipoDoc, int numDoc, String direccion, int telefono, String correo) {
+    public Cliente(String nombre,String apellido, String tipoDoc, int numDoc, String direccion, int telefono, String correo, String contraseña) {
         this.nombre = nombre;
+        this.apellido = apellido;
         this.tipoDoc = tipoDoc;
         this.numDoc = numDoc;
         this.direccion = direccion;
         this.telefono = telefono;
         this.correo = correo;
+        this.contraseña = contraseña;
     }
     public Cliente(String nombre, String apellido, String tipoDoc, int numDoc, String direccion, int telefono, String correo, Set<PedidoProducto> pedidoProductos, Set<PedidoTransporte> pedidoTransportes) {
        this.nombre = nombre;
@@ -139,6 +142,15 @@ public class Cliente  implements java.io.Serializable {
     
     public void setCorreo(String correo) {
         this.correo = correo;
+    }
+    
+    @Column(name="CONTRASEÑA", nullable=false, length=45)
+    public String getContraseña() {
+        return this.contraseña;
+    }
+    
+    public void setContraseña(String contraseña) {
+        this.contraseña = contraseña;
     }
 
 @OneToMany(fetch=FetchType.LAZY, mappedBy="cliente")
