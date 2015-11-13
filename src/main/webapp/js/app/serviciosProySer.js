@@ -6,6 +6,7 @@
         this.productsRequestPromise = function () {            
             return $http({
                 method: 'GET',
+
                 url: 'rest/products/proveedor'
             });            
         };
@@ -15,6 +16,7 @@
     );
 
 })();
+
 
 
 
