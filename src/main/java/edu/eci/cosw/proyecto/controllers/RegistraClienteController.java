@@ -4,7 +4,6 @@
  * and open the template in the editor.
  */
 package edu.eci.cosw.proyecto.controllers;
-
 import edu.eci.cosw.proyecto.logica.Logica;
 import edu.eci.cosw.proyecto.model.Cliente;
 import edu.eci.cosw.proyecto.model.Producto;
@@ -25,12 +24,11 @@ import org.springframework.web.bind.annotation.RestController;
  * @author hcadavid
  */
 @RestController
-@RequestMapping("/products")
-public class ProductsController {
+@RequestMapping("/cliente")
+public class RegistraClienteController {
     
-    @Autowired
+ @Autowired
     Logica logica;
-    
     
     /**
      * 
@@ -41,23 +39,15 @@ public class ProductsController {
         return "Servidor Rest corriendo";        
     }
     
-    /*@RequestMapping(method = RequestMethod.POST)        
-    public ResponseEntity<?> addProduct(@RequestBody Producto p) {       
-        services.addNewProduct(p);
-        return new ResponseEntity<>(HttpStatus.ACCEPTED);
-    }*/
-   
+    @RequestMapping(value="/guardar",method = RequestMethod.POST)
+    public ResponseEntity<?> registrarCliente(@RequestBody Cliente cliente ){
+        logica.agregarCliente(cliente.getNombre(),cliente.getApellido(),cliente.getTipoDoc(),cliente.getNumDoc(),cliente.getDireccion(),cliente.getTelefono(),cliente.getCorreo()); 
+        return new ResponseEntity<>(HttpStatus.CREATED);
+    }  
     
-    /**
-     * 
-     * @return lista con todos los proveedores
-     */
-    @RequestMapping(value="/proveedor",method = RequestMethod.GET)        
-    public List<Proveedor> consultarProveedores() {  
-        return logica.consultarProveedores();
+    @RequestMapping(value="/cliente",method = RequestMethod.GET)        
+    public List<Cliente> consultarcliente() {  
+        return logica.consultarCliente();
     }
-    
-        
-    
 }
 

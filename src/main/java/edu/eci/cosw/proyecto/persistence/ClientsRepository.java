@@ -1,4 +1,4 @@
-/*
+    /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
@@ -18,4 +18,7 @@ import org.springframework.data.repository.query.Param;
 public interface ClientsRepository extends CrudRepository<Cliente, Integer>{
     @Query("from Cliente c where c.correo like %:ln%")
  public List<Cliente> search(@Param("ln") String searchTerm);
+ 
+ @Query("select c from Cliente c")
+  public List<Cliente> consultarTodos();
 }

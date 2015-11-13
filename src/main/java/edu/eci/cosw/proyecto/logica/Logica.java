@@ -84,6 +84,11 @@ public class Logica {
         public void deleteAll() {
             throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
         }
+
+        @Override
+        public List<Cliente> consultarTodos() {
+            throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        }
     };
     
     @Autowired
@@ -165,6 +170,7 @@ public class Logica {
         pr.save(v);
     }
     
+    
      /**
      * 
      * @return lista de todos los proveedores
@@ -172,4 +178,9 @@ public class Logica {
     public List<Proveedor> consultarProveedores(){
         return pr.consultarTodos();
     } 
+    
+    public List<Cliente> consultarCliente(){
+        return cr.consultarTodos();
+    } 
+
 }

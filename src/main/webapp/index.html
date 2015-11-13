@@ -25,7 +25,7 @@
 
 
 </head>
-<body>
+<body ng-app="proyser">
 <header class="header">
 	<div class="container">
 		<div class="row">
@@ -75,9 +75,9 @@
 	</div>
 </div>
 
-<div class="container-fluid features" id="section2">
+<div class="container-fluid features" id="section2" >
 	<div class="container">
-		<div class="row">
+		<div class="row" ng-controller="proysercontroller">
 			<div class="col-md-12">
 				<h2 class="text-center features-text" style="color:white;">Registrarme</h2>
 				<div class="col-md-12">
@@ -85,33 +85,31 @@
 					<form role="form">
 						<div class="col-md-6 col-sm-12 col-xs-12contact-form">
 	                        <div class="form-group">
-	                            <input type="text" class="form-control form-effect" id="name" placeholder="Nombre">
+                                    <input type="text" class="form-control form-effect" id="name" placeholder="Nombre" ng-model="nombre">
 	                        </div>
 	                        <div class="form-group">
-	                            <input type="text" class="form-control form-effect" id="apellido" placeholder="Apellido"></textarea>
+	                            <input type="text" class="form-control form-effect" id="apellido" placeholder="Apellido" ng-model="apellido"></textarea>
 	                        </div>  
 	                        <div class="form-group">                                 
-	                            <input type="text" class="form-control form-effect" id="direccion" placeholder="Dirección">
+	                            <input type="text" class="form-control form-effect" id="direccion" placeholder="Dirección" ng-model="direccion">
 	                        </div>
 	                         <div class="form-group">
-	                            <input type="text" class="form-control form-effect" id="tel" placeholder="Telefono">
+	                            <input type="text" class="form-control form-effect" id="tel" placeholder="Telefono" ng-model="telefono">
 	                        </div>
 	                        
                         </div>
                         <div class="col-md-6 col-sm-12 col-xs-12contact-form">
-                        	<div class="form-group">
-	                            <input type="text" class="form-control form-effect" id="cel" placeholder="Celular"></textarea>
-	                        </div>  
+                        	
 	                        <div class="form-group">                                 
-	                            <input type="email" class="form-control form-effect" id="email" placeholder="Correo Electronico">
+	                            <input type="email" class="form-control form-effect" id="email" placeholder="Correo Electronico" ng-model="correo">
 	                        </div>
 	                        <div class="form-group">                                 
-	                            <input type="password" class="form-control form-effect" id="pass" placeholder="Contraseña">
+	                            <input type="password" class="form-control form-effect" id="pass" placeholder="Contraseña" ng-model="cont">
 	                        </div>
 	                        <div class="form-group">                                 
-	                            <input type="password" class="form-control form-effect" id="repass" placeholder="Repita su contraseña">
+	                            <input type="password" class="form-control form-effect" id="repass" placeholder="Repita su contraseña" ng-model="cont1">
 	                        </div>
-	                        <button type="submit" class="btn btn-default btn-sub" style="background-color: #4E618C;">Enviar</button>
+                            <button type="submit" class="btn btn-default btn-sub" style="background-color: #4E618C;" ng-click="registrarCliente()">Enviar</button>
                         </div>
                     </form>
 				

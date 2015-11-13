@@ -20,26 +20,19 @@
         
         $scope.availableProducts=[];
         
-        //$scope.selectedProducts=productsSelectionFactory.getData();
-        
-        $scope.selectedProductId=-1;
-
-        $scope.selectedProductDetail=null;
-        
+        $scope.nombre="nicolas";
+        $scope.apellido="cantor";
+        $scope.tipodoc = "cc";
+        $scope.numDoc = 123455;
+        $scope.direccion = "calle123 #123-5";
+        $scope.telefono = 12345;
+        $scope.correo = "niolas@hotmail.com";
+        $scope.cont = "1234";
+        $scope.cont1 = "1234";
+        $scope.id = 1;
+               
         $scope.availableProdRequestPromise=ProductsRestAPI.productsRequestPromise();
-        
-        $scope.myVar = true;
-        
-        //$scope.costoTotal = ProductsRestAPI.calculateShoppingKartCost($scope.selectedProducts);
-        
-        /*$scope.addToSelectedProducts=function(){   
-            
-            //$scope.selectedProducts.push($scope.selectedProductDetail);
-            productsSelectionFactory.addProduct($scope.selectedProductDetail);
-            console.log('Shopping kart updated'+JSON.stringify($scope.selectedProducts));
-            
-        };*/
-        
+      
         $scope.availableProdRequestPromise.then(
                 //promise success
                 function(response){
@@ -50,27 +43,27 @@
                 function(response){
                     console.log('Unable to get data from REST API:'+response);
                 }
-        );
+        );       
 
-        /*$scope.setSelectedProduct=function(idprod){
-            $scope.selectedProductId=idprod;
-            $scope.myVar = false;
-            ProductsRestAPI.productByIdRequestPromise(idprod).then(
-                //promise success
+
+        $scope.registrarCliente = function(){
+            alert($scope.nombre);
+            ProductsRestAPI.registrarCliente($scope.id,$scope.nombre,$scope.apellido,$scope.tipodoc,$scope.numDoc,$scope.direccion,$scope.telefono,$scope.correo).then(
+                    //promise success
+                    
                 function(response){
                     console.log(response.data);                    
-                    $scope.selectedProductDetail=response.data;                    
+                    //$scope.availableProducts=response.data;  
+                    alert("usuario creado correctamente");
                 },
                 //promise error
                 function(response){
-                    console.log('Unable to get data from REST API:'+response);
+                    console.log('Unable to get data from REST API:'+response.data);
+                    alert("error");
                 }
-            );
-            
-        };       */
-        
+            )
  
-        
+        }
         
     }
     );
