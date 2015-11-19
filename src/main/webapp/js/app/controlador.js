@@ -52,6 +52,18 @@
 
 
         $scope.registrarCliente = function(){
+            if($scope.nombre.length <= 0|| $scope.apellido.length <= 0 || $scope.numDoc <= 0 || $scope.direccion.length <= 0 || $scope.telefono <= 0 || $scope.correo.length <= 0 || $scope.contra.length <= 0 || $scope.contra1.length <= 0){
+                alert("Ningun campo puede estar bacio");
+                if($scope.nombre.length <= 0){document.getElementById('name').style.border= '2px solid #E60000';}
+                if($scope.apellido.length <= 0){document.getElementById('apellido').style.border= '2px solid #E60000';}
+                if($scope.numDoc <= 0 || $scope.numDoc == undefined){document.getElementById('numDoc').style.border= '2px solid #E60000';}
+                if($scope.direccion.length <= 0){document.getElementById('direccion').style.border= '2px solid #E60000';}
+                if($scope.telefono <= 0 || $scope.telefono == undefined){document.getElementById('tel').style.border= '2px solid #E60000';}
+                if($scope.correo.length <= 0){document.getElementById('email').style.border= '2px solid #E60000';}
+                if($scope.contra.length <= 0){document.getElementById('pass').style.border= '2px solid #E60000';}
+                if($scope.contra1.length <= 0){document.getElementById('repass').style.border= '2px solid #E60000';}
+                
+            }else{               
                 if($scope.contra != $scope.contra1){
                     alert("Las contraseñas no coinciden");
                 }else{
@@ -66,12 +78,12 @@
                         //promise error
                         function(response){
                             console.log('Unable to get data from REST API:'+response.data);
-                            alert("error");
+                            alert("No se ha podido guardar le información, por favor revise sus datos.");
                         }
                     )
                 }
     
-            
+            }
  
         }
         
