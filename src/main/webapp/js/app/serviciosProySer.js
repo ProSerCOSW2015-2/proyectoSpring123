@@ -9,7 +9,15 @@
                 url: 'rest/products/proveedor'
             });            
         };
-    
+
+        this. productosProveedorTransporteSeleccionado = function (id) {            
+            return $http({
+                method: 'GET',
+                url: 'rest/products/producto/'+id
+            });            
+        };
+            
+
         this.registrarCliente = function (id,nombre,apellido,tipodoc,numDoc,direccion,telefono,correo,contra) {  
            var usuario = {"idcliente":id,"nombre":nombre,"apellido":apellido,"tipoDoc":tipodoc,"numDoc":numDoc,"direccion":direccion,"telefono":telefono,"correo":correo,"contraseña":contra,"pedidoProductos":null,"pedidoTransportes":null};
             return $http({
