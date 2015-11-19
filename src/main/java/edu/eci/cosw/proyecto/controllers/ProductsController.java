@@ -50,7 +50,15 @@ public class ProductsController {
         return logica.consultarProveedores();
     }
     
-        
+
+
+    @RequestMapping(value = "/producto/{id}",method = RequestMethod.GET)
+    public List<Producto> consultarProductoProveedorTransporte(@PathVariable int id){
+
+            return logica.consultaProductoProveedor(id);
+
+    }
+
     
 }
 

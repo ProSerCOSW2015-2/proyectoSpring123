@@ -19,6 +19,9 @@
     app.controller('proysercontroller', function ($scope,ProductsRestAPI) {
         
         $scope.availableProducts=[];
+
+        $scope.transporteProveedor=[];
+
         
         $scope.nombre="";
         $scope.apellido="";
@@ -49,6 +52,32 @@
                     console.log('Unable to get data from REST API:'+response);
                 }
         );       
+
+        
+         $scope.consultarTransProductos = function(id){
+            ProductsRestAPI.productosProveedorTransporteSeleccionado(id).then(
+
+                                //promise success                        
+                            function(response){
+
+                                $scope.transporteProveedor=response.data;
+
+                                console.log(response.data);                          
+
+                            },
+
+                            //promise error
+                            function(response){
+
+                                console.log('Unable to get data from REST API:'+response.data);
+
+                                alert("No se ha podido consultar, por favor revise sus datos.");
+
+                            }
+
+                        )
+
+        }
 
 
         $scope.registrarCliente = function(){

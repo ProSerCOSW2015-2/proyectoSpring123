@@ -6,8 +6,15 @@
 package edu.eci.cosw.proyecto.logica;
 
 import edu.eci.cosw.proyecto.model.Cliente;
+
 import edu.eci.cosw.proyecto.model.Proveedor;
 import edu.eci.cosw.proyecto.persistence.ClientsRepository;
+
+import edu.eci.cosw.proyecto.model.Producto;
+import edu.eci.cosw.proyecto.model.Proveedor;
+import edu.eci.cosw.proyecto.persistence.ClientsRepository;
+import edu.eci.cosw.proyecto.persistence.ProductRepository;
+
 import edu.eci.cosw.proyecto.persistence.ProveedorRepository;
 import static java.lang.reflect.Array.set;
 import java.util.List;
@@ -22,6 +29,71 @@ import org.springframework.stereotype.Service;
 @Service
 public class Logica {
     
+
+    ProductRepository productRepository = new  ProductRepository() {
+
+        @Override
+        public List<Producto> buscarProductos(int searchTerm) {
+            throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        }
+
+        @Override
+        public <S extends Producto> S save(S s) {
+            throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        }
+
+        @Override
+        public <S extends Producto> Iterable<S> save(Iterable<S> itrbl) {
+            throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        }
+
+        @Override
+        public Producto findOne(Integer id) {
+            throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        }
+
+        @Override
+        public boolean exists(Integer id) {
+            throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        }
+
+        @Override
+        public Iterable<Producto> findAll() {
+            throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        }
+
+        @Override
+        public Iterable<Producto> findAll(Iterable<Integer> itrbl) {
+            throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        }
+
+        @Override
+        public long count() {
+            throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        }
+
+        @Override
+        public void delete(Integer id) {
+            throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        }
+
+        @Override
+        public void delete(Producto t) {
+            throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        }
+
+        @Override
+        public void delete(Iterable<? extends Producto> itrbl) {
+            throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        }
+
+        @Override
+        public void deleteAll() {
+            throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        }
+    };
+    
+
     @Autowired
     ClientsRepository cr = new ClientsRepository() {
 
@@ -155,6 +227,7 @@ public class Logica {
         }
     };
 
+
     public void agregarCliente(String nombre, String apellido, String tDoc, int documento,String direccion, int telefono, String correo, String contraseña ) {
          List<Cliente> clientes = cr.search("%"+correo+"%");
         if(clientes.size() <= 0){
@@ -182,5 +255,12 @@ public class Logica {
     public List<Cliente> consultarCliente(){
         return cr.consultarTodos();
     } 
+
+    public List<Producto> consultaProductoProveedor(int id){
+         List<Producto> productos = productRepository.buscarProductos(id);
+
+         return productos;
+    }
+
 
 }
