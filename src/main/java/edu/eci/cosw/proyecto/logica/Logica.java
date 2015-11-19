@@ -29,7 +29,7 @@ import org.springframework.stereotype.Service;
 @Service
 public class Logica {
     
-
+    @Autowired
     ProductRepository productRepository = new  ProductRepository() {
 
         @Override
@@ -92,8 +92,7 @@ public class Logica {
             throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
         }
     };
-    
-
+   
     @Autowired
     ClientsRepository cr = new ClientsRepository() {
 
@@ -243,7 +242,6 @@ public class Logica {
         pr.save(v);
     }
     
-    
      /**
      * 
      * @return lista de todos los proveedores
@@ -258,7 +256,6 @@ public class Logica {
 
     public List<Producto> consultaProductoProveedor(int id){
          List<Producto> productos = productRepository.buscarProductos(id);
-
          return productos;
     }
 

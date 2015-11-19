@@ -59,20 +59,14 @@
 
                                 //promise success                        
                             function(response){
-
                                 $scope.transporteProveedor=response.data;
-
                                 console.log(response.data);                          
-
                             },
 
                             //promise error
                             function(response){
-
-                                console.log('Unable to get data from REST API:'+response.data);
-
+                                console.log('Unable to get data from REST API:'+ response.data);
                                 alert("No se ha podido consultar, por favor revise sus datos.");
-
                             }
 
                         )

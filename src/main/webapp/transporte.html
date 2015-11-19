@@ -63,7 +63,7 @@
                     
                     <div class="col-sm-6" style="background-color:lavender; margin-left:27%;">
 
-                <table class="table table-striped" style="cursor: pointer;">
+              <table class="table table-striped" style="cursor: pointer;">
                     <thead>
                         <tr>
                             <th>Nombre del Proveedor</th>  
@@ -72,11 +72,27 @@
                     </thead>
                     <tbody>
                         <tr ng-repeat="prod in availableProducts" ng-click="setSelectedProduct(prod.idproducto)">                            
-                            <td>{{ prod.nombre}}</td>
-                            <td><a href="#">Ver</a></td>
+                            <td>{{prod.nombre}}</td>
+                            <td><a href="#" ng-click="consultarTransProductos(prod.idProveedor)">Ver</a></td>
                         </tr>
                     </tbody>
                 </table>
+                        
+               <table class="table table-striped" style="cursor: pointer;">
+                    <thead>
+                        <tr>
+                            <th>Servicios del Proveedor</th>  
+                            <th>Precio</th> 
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr ng-repeat="prod in transporteProveedor" >                            
+                            <td>{{prod.tipo}}</td>
+                             <td>${{prod.precio}}</td>
+                             
+                        </tr>
+                    </tbody>
+                </table> 
 
             </div>
 			</div>

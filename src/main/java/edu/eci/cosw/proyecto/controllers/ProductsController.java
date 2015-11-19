@@ -54,9 +54,7 @@ public class ProductsController {
 
     @RequestMapping(value = "/producto/{id}",method = RequestMethod.GET)
     public List<Producto> consultarProductoProveedorTransporte(@PathVariable int id){
-
-            return logica.consultaProductoProveedor(id);
-
+         return logica.consultaProductoProveedor(id);
     }
 
     

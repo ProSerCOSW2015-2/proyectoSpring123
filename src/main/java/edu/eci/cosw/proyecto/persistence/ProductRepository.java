@@ -21,6 +21,7 @@ import org.springframework.data.repository.query.Param;
  */
 public interface ProductRepository extends CrudRepository<Producto, Integer>{
 
-    @Query("from Transporte t where t.proveedor.idProveedor like :ln")public List<Producto> buscarProductos(@Param("ln") int searchTerm);
+    @Query("from Transporte t where t.proveedor.idProveedor like :ln")
+    public List<Producto> buscarProductos(@Param("ln") int searchTerm);
 
 }
