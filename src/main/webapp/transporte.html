@@ -13,7 +13,8 @@
         <script src="js/libs/angular.min.js"></script>
         <script src="js/libs/angular-route.min.js"></script>
         <script src="js/app/serviciosProySer.js"></script>
-        <script src="js/app/controlador.js"></script>       
+        <script src="js/app/controlador.js"></script>   
+
 
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
@@ -62,6 +63,7 @@
 			</div>
                     
                     <div class="col-sm-6" style="background-color:lavender; margin-left:27%;">
+              <img src="images/cargando1.gif"   ng-show="menuState.show" style="position: absolute; margin-left: 28%; margin-top: 15%;" /> 
 
               <table class="table table-striped" style="cursor: pointer;">
                     <thead>
@@ -73,15 +75,16 @@
                     <tbody>
                         <tr ng-repeat="prod in availableProducts" ng-click="setSelectedProduct(prod.idproducto)">                            
                             <td>{{prod.nombre}}</td>
-                            <td><a href="#" ng-click="consultarTransProductos(prod.idProveedor)">Ver</a></td>
+                            <td><a href="#" ng-click="consultarTransProductos(prod.idProveedor, prod.nombre)">Ver</a></td>
                         </tr>
                     </tbody>
                 </table>
-                        
+                     
+                   
                <table class="table table-striped" style="cursor: pointer;">
                     <thead>
                         <tr>
-                            <th>Servicios del Proveedor</th>  
+                            <th>Servicios del Proveedor : {{nombreProveedor}}</th>  
                             <th>Precio</th> 
                         </tr>
                     </thead>
@@ -89,13 +92,21 @@
                         <tr ng-repeat="prod in transporteProveedor" >                            
                             <td>{{prod.tipo}}</td>
                              <td>${{prod.precio}}</td>
-                             
+                             <td><a href="#login" >Contratar</a></td>
+                                                         
                         </tr>
                     </tbody>
                 </table> 
+              
+              
 
             </div>
 			</div>
+            <br><br>
+            <div>
+                    <div ng-view></div>
+                 
+             </div> 
 		</div>
 	</div>
 </div>

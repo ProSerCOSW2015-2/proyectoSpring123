@@ -10,10 +10,17 @@
             });            
         };
 
-        this. productosProveedorTransporteSeleccionado = function (id) {            
+        this.productosProveedorTransporteSeleccionado = function (id) {            
             return $http({
                 method: 'GET',
                 url: 'rest/products/producto/'+id
+            });            
+        };
+        
+         this.loginUsuario = function (correo) {            
+            return $http({
+                method: 'GET',
+                url: 'rest/cliente/login/'+correo
             });            
         };
             
@@ -26,8 +33,8 @@
                 data: usuario
                                 
             });            
-        };   
-
+        };  
+        
     });
 
 })();

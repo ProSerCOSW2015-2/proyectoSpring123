@@ -29,6 +29,13 @@ public class RegistraClienteController {
     
  @Autowired
     Logica logica;
+ 
+    /*
+    *
+    *Return 0 = false
+    *Return 1 = true
+    */
+    int sesion = 0;
     
     /**
      * 
@@ -39,15 +46,34 @@ public class RegistraClienteController {
         return "Servidor Rest corriendo";        
     }
     
+    /**
+     * 
+     * Post Cliente nuevo, nuevo registro
+     */
     @RequestMapping(value="/guardar",method = RequestMethod.POST)
     public ResponseEntity<?> registrarCliente(@RequestBody Cliente cliente ){
         logica.agregarCliente(cliente.getNombre(),cliente.getApellido(),cliente.getTipoDoc(),cliente.getNumDoc(),cliente.getDireccion(),cliente.getTelefono(),cliente.getCorreo(), cliente.getContraseña()); 
         return new ResponseEntity<>(HttpStatus.CREATED);
     }  
     
+    /**
+     * 
+     * @return lista de clientes.
+     */    
     @RequestMapping(value="/cliente",method = RequestMethod.GET)        
     public List<Cliente> consultarcliente() {  
         return logica.consultarCliente();
     }
+    
+    
+    /**
+     * 
+     * @return un clientes.
+     */
+    @RequestMapping(value = "/login/{correo}",method = RequestMethod.GET)
+    public Cliente consultarCliente(@PathVariable String correo){
+         return logica.consultarClienteLogin(correo.replace(",", "."));
+    }
+  
 }
 

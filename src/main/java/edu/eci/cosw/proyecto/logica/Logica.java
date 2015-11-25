@@ -160,6 +160,16 @@ public class Logica {
         public List<Cliente> consultarTodos() {
             throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
         }
+
+     
+
+        @Override
+        public Cliente buscarClienteXCorreo(String searchTerm) {
+            throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        }
+
+
+        
     };
     
     @Autowired
@@ -252,6 +262,11 @@ public class Logica {
     
     public List<Cliente> consultarCliente(){
         return cr.consultarTodos();
+    } 
+    
+    public Cliente consultarClienteLogin(String correo){
+        Cliente clientes = cr.buscarClienteXCorreo(correo);
+        return clientes;
     } 
 
     public List<Producto> consultaProductoProveedor(int id){
