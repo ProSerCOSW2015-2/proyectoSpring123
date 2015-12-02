@@ -3,22 +3,27 @@
     
     app.config(['$routeProvider',function ($routeProvider) {
         $routeProvider
-                .when('/bacio', {
-                    templateUrl: 'bacio.html'
+                .when('/home', {
+                    templateUrl: 'home.html'
+                })
+                .when('/registrar', {
+                    templateUrl: 'registrar.html'
+                })                
+                .when('/transp', {
+                    templateUrl: 'transporte.html'
                 })
                 .when('/login', {
                     templateUrl: 'login.html'
-                })                
-                .when('/registrar', {
-                    templateUrl: 'registrar.html'
                 })
                 .otherwise({
-               redirectTo: '/addStudent'
+               redirectTo: '/home'
             });  
     }]);
 
 
-    app.controller('proysercontroller', function ($scope,ProductsRestAPI) {
+    app.controller('proysercontroller', function ($scope,ProductsRestAPI, $location) {
+        
+        
         
         $scope.availableProducts=[];
         $scope.usuario = {"corre": "", "clave": ""};
@@ -124,11 +129,12 @@
                             console.log(response.data);                    
                             //$scope.availableProducts=response.data;  
                             alert("usuario creado correctamente");
+                            $location.url("/transp");
                         },
                         //promise error
                         function(response){
                             console.log('Unable to get data from REST API:'+response.data);
-                            alert("No se ha podido guardar le información, por favor revise sus datos.");
+                            alert("No se ha podido guardar la información, por favor revise sus datos.");
                         }
                     )
                 }
