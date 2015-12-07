@@ -5,17 +5,13 @@
  */
 package edu.eci.cosw.proyecto.persistence;
 
-import edu.eci.cosw.proyecto.model.Transaccion;
-import java.util.List;
-import org.springframework.data.jpa.repository.Query;
+import edu.eci.cosw.proyecto.model.PedidoTransporte;
 import org.springframework.data.repository.CrudRepository;
 
 /**
  *
  * @author NICOLAS
  */
-public interface TransaccionRepository extends CrudRepository<Transaccion, Integer>{
+public interface PedidoTransporteRepository extends CrudRepository<PedidoTransporte, Integer>{
     
-  @Query("select t from Transaccion t")
-  public List<Transaccion> consultarTran();
 }

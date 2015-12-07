@@ -50,18 +50,25 @@
             });            
         }; 
         
-        this.registrarTransaccion = function (id, aprobacion, fecha, idCliente, idTransporte) {  
-           var transaccion = {"idTransaccion":id,"aprobacion":true, "fecha": fecha, "pedidoTransportes" : null, "pedidoProductos": null};
+        this.registrarTransaccion = function (idCliente, idTransporte) {
+            var a =[idCliente, idTransporte];
+            
             return $http({
                 method: 'POST',
                 url: 'rest/transacciones/guardar',
-                data: transaccion,
-                      "idCliente" : idCliente,
-                      "idTransporte": idTransporte
-                     
-                                
+                data: a                        
             });            
-        }; 
+        };
+        
+         this.registrarTransaccionProducto = function (idCliente) {
+            var a =idCliente;
+            
+            return $http({
+                method: 'POST',
+                url: 'rest/transacciones/guardarProducto/',
+                data: a                      
+            });            
+        };
         
     });
 

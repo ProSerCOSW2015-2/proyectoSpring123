@@ -19,6 +19,9 @@ public interface ClientsRepository extends CrudRepository<Cliente, Integer>{
  @Query("from Cliente c where c.correo like %:ln%")
  public List<Cliente> search(@Param("ln") String searchTerm);
  
+ @Query("from Cliente c where c.idcliente like :ln")
+ public Cliente buscarPorId(@Param("ln") int searchTerm);
+ 
  @Query("select c from Cliente c")
   public List<Cliente> consultarTodos();
   

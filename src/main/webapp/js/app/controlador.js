@@ -33,18 +33,35 @@
     app.factory("controlVariables", function(){
         var correo = 0;
         var nombreN = ""; 
+        var idClienteN = 0;
+        var idTransporteN = 0;
         var carrito = [];
+        var tipoTran = 0;
 
         var interfaz = {
             getUsuario: function(){
                 return correo;
             },
-            setUsuario: function(nombre){
+            setUsuario: function(nombre, idCliente){
                 correo = 1;
                 nombreN = nombre;
+                
+                idClienteN = idCliente;
             },
             getCarrito: function(){
               return carrito;  
+            },
+            getIdUsuario: function(){
+              return idClienteN;  
+            },
+            getTipoTran: function(){
+              return tipoTran;  
+            },
+            setTipoTran: function(valor){
+              tipoTran = valor;  
+            },
+            getIdTransporte: function(){
+              return idTransporteN;  
             },
             resetCarrito: function(){
               carrito = [];  
@@ -54,14 +71,15 @@
                 proveedorN = proveedor;
                 montoValor = precio;
             },
-            setCarritoArticulos: function(nombre, proveedor, precio){
+            setCarritoArticulos: function(nombre, proveedor, precio, id){
+                idTransporteN = id;
                 var info = { "nombre" : nombre,
                               "proveedor" : proveedor,
                               "precio" : precio
                             };
                 carrito.push(info);
             }
-            
+           
         }
         return interfaz;
     });
@@ -128,9 +146,11 @@
                 }
         ); 
         
-        $scope.valores = function(nombre, proveedor, precio){
+        $scope.valores = function(nombre, proveedor, precio, id){
             //controlVariables.resetCarrito();
-            controlVariables.setCarritoArticulos(nombre, proveedor, precio);
+            
+            controlVariables.setTipoTran(1);
+            controlVariables.setCarritoArticulos(nombre, proveedor, precio, id);
             if(controlVariables.getUsuario() === 1){
                 $location.url("/pasarela");
             }else{
@@ -141,6 +161,7 @@
         
          $scope.nextArticulos = function(){
             //controlVariables.resetCarrito();
+             controlVariables.setTipoTran(1);
             if(controlVariables.getUsuario() === 1){
                 $location.url("/pasarela");
             }else{
@@ -156,7 +177,7 @@
 
         $scope.entrar = function(correo, contra){
             $scope.usuario.corre =  correo.split(".");
-            $scope.usuario.clave =  contra;;
+            $scope.usuario.clave =  contra;
             ProductsRestAPI.loginUsuario($scope.usuario.corre).then(
                                 //promise success                        
                             function(response){
@@ -166,7 +187,7 @@
                                }else{
                                    if(response.data.contrasena === contra){
                                         alert("Bienvenido " + response.data.nombre);
-                                        controlVariables.setUsuario(response.data.nombre);
+                                        controlVariables.setUsuario(response.data.nombre, response.data.idcliente);
                                         $scope.nombreUsuario = "Bienvenido " + response.data.nombre;
                                         $location.url("/pasarela");
                                     }else{
@@ -273,7 +294,41 @@
         $scope.carrito = [];
         $scope.carrito = controlVariables.getCarrito();
         
-        
+        $scope.enviarTransaccion = function(){
+            if(controlVariables.getgetTipoTran === 1){
+                ProductsRestAPI.registrarTransaccion(controlVariables.getIdUsuario(), controlVariables.getIdTransporte()).then(
+                                //promise success                        
+                            function(response){                            
+                                console.log(response.data); 
+                                alert("Transaccion Exitosa");
+                                $location.url("/transp");
+                            },
+                            //promise error
+                            function(response){
+                                
+                                alert("Transaccion erronea");
+                                console.log('Unable to get data from REST API:'+ response.data);
+                            }
+                        );
+            }else{
+                 ProductsRestAPI.registrarTransaccionProducto(controlVariables.getIdUsuario()).then(
+                                //promise success                        
+                            function(response){                            
+                                console.log(response.data); 
+                                alert("Transaccion Exitosa");
+                                $location.url("/transp");
+                            },
+                            //promise error
+                            function(response){
+                                
+                                alert("Transaccion erronea");
+                                console.log('Unable to get data from REST API:'+ response.data);
+                            }
+                        );
+            }
+            
+            
+        };
                  
 });
     

@@ -41,7 +41,7 @@
                                   <tr ng-repeat="prod in transporteProveedor" >                            
                                       <td>{{prod.tipo}}</td>
                                        <td>{{prod.precio| currency }}</td>
-                                       <td><a href="" ng-click="valores(prod.tipo,nombreProveedor,prod.precio)">Contratar</a></td>
+                                       <td><a href="" ng-click="valores(prod.tipo,nombreProveedor,prod.precio, prod.idTransporte)">Contratar</a></td>
 
                                   </tr>
                               </tbody>
