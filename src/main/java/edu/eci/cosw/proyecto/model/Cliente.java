@@ -32,7 +32,7 @@ public class Cliente  implements java.io.Serializable {
      private String direccion;
      private int telefono;
      private String correo;
-     private String contraseña;
+     private String contrasena;
      private Set<PedidoProducto> pedidoProductos = new HashSet<PedidoProducto>(0);
      private Set<PedidoTransporte> pedidoTransportes = new HashSet<PedidoTransporte>(0);
 
@@ -40,7 +40,7 @@ public class Cliente  implements java.io.Serializable {
     }
 
 	
-    public Cliente(String nombre,String apellido, String tipoDoc, int numDoc, String direccion, int telefono, String correo, String contraseña) {
+    public Cliente(String nombre,String apellido, String tipoDoc, int numDoc, String direccion, int telefono, String correo, String contrasena) {
         this.nombre = nombre;
         this.apellido = apellido;
         this.tipoDoc = tipoDoc;
@@ -48,7 +48,7 @@ public class Cliente  implements java.io.Serializable {
         this.direccion = direccion;
         this.telefono = telefono;
         this.correo = correo;
-        this.contraseña = contraseña;
+        this.contrasena = contrasena;
     }
     public Cliente(String nombre, String apellido, String tipoDoc, int numDoc, String direccion, int telefono, String correo, Set<PedidoProducto> pedidoProductos, Set<PedidoTransporte> pedidoTransportes) {
        this.nombre = nombre;
@@ -144,13 +144,13 @@ public class Cliente  implements java.io.Serializable {
         this.correo = correo;
     }
     
-    @Column(name="CONTRASEÑA", nullable=false, length=45)
-    public String getContraseña() {
-        return this.contraseña;
+    @Column(name="CONTRASENA", nullable=false, length=45)
+    public String getContrasena() {
+        return this.contrasena;
     }
     
-    public void setContraseña(String contraseña) {
-        this.contraseña = contraseña;
+    public void setContrasena(String contrasena) {
+        this.contrasena = contrasena;
     }
 
 @OneToMany(fetch=FetchType.LAZY, mappedBy="cliente")

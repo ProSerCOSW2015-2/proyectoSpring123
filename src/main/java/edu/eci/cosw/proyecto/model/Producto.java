@@ -65,7 +65,7 @@ public class Producto  implements java.io.Serializable {
         this.idProducto = idProducto;
     }
 
-@ManyToOne(fetch=FetchType.LAZY)
+    @ManyToOne(fetch=FetchType.LAZY)
     @JoinColumn(name="Evaluacion_idEvaluacion", nullable=false)
     public Evaluacion getEvaluacion() {
         return this.evaluacion;

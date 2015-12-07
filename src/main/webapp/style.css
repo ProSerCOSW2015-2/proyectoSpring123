@@ -480,7 +480,7 @@ input[placeholder], [placeholder], *[placeholder] {
 }
 
 
-#name, #apellido, #direccion, #tel, #cel, #email, #pass, #repass, #numDoc{
+#name, #apellido, #direccion, #tel, #cel, #email, #pass, #repass, #numDoc, #numtarjeta, #numSeguridadTarjeta, #numSeguridadTarjeta{
 	background-color: rgb(255,255,255);
 	color:#8AB839 !important;
 }

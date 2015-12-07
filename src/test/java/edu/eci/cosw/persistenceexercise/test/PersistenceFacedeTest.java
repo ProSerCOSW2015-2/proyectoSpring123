@@ -30,7 +30,7 @@ public class PersistenceFacedeTest {
     
     @Autowired
     Logica logica = new Logica();
-    
+ 
     @Autowired
     private ClientsRepository cr;
  
@@ -49,7 +49,7 @@ public class PersistenceFacedeTest {
             cr.save(new Cliente("camilo", "g", "cc", 123456789, "calle 170 # 64-54", 6366007, "fabian@hotmail.com", "123"));
             cr.save(new Cliente("nicolas", "g","cc", 123456789, "calle 170 # 64-54", 6366007, "nicolas@hotmail.com", "123"));
             springInit = true;
-        }
+}
 
     }
     

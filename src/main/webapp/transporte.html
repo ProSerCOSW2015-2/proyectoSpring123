@@ -40,8 +40,8 @@
                               <tbody>
                                   <tr ng-repeat="prod in transporteProveedor" >                            
                                       <td>{{prod.tipo}}</td>
-                                       <td>${{prod.precio}}</td>
-                                       <td><a href="#login" >Contratar</a></td>
+                                       <td>{{prod.precio| currency }}</td>
+                                       <td><a href="" ng-click="valores(prod.tipo,nombreProveedor,prod.precio)">Contratar</a></td>
 
                                   </tr>
                               </tbody>

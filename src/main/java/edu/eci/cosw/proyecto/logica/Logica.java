@@ -12,10 +12,12 @@ import edu.eci.cosw.proyecto.persistence.ClientsRepository;
 
 import edu.eci.cosw.proyecto.model.Producto;
 import edu.eci.cosw.proyecto.model.Proveedor;
+import edu.eci.cosw.proyecto.model.Transaccion;
 import edu.eci.cosw.proyecto.persistence.ClientsRepository;
 import edu.eci.cosw.proyecto.persistence.ProductRepository;
 
 import edu.eci.cosw.proyecto.persistence.ProveedorRepository;
+import edu.eci.cosw.proyecto.persistence.TransaccionRepository;
 import static java.lang.reflect.Array.set;
 import java.util.List;
 import java.util.Set;
@@ -89,6 +91,11 @@ public class Logica {
 
         @Override
         public void deleteAll() {
+            throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        }
+
+        @Override
+        public List<Producto> buscarArticulo(int id) {
             throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
         }
     };
@@ -234,6 +241,82 @@ public class Logica {
         public void deleteAll() {
             throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
         }
+
+        @Override
+        public List<Proveedor> consultarProveedorTransporte(int searchTerm) {
+            throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        }
+
+        @Override
+        public List<Proveedor> consultarProveedorArticulo(int searchTerm) {
+            throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        }
+
+       
+    };
+    
+    @Autowired
+    TransaccionRepository tr = new TransaccionRepository() {
+
+        @Override
+        public <S extends Transaccion> S save(S s) {
+            throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        }
+
+        @Override
+        public <S extends Transaccion> Iterable<S> save(Iterable<S> itrbl) {
+            throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        }
+
+        @Override
+        public Transaccion findOne(Integer id) {
+            throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        }
+
+        @Override
+        public boolean exists(Integer id) {
+            throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        }
+
+        @Override
+        public Iterable<Transaccion> findAll() {
+            throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        }
+
+        @Override
+        public Iterable<Transaccion> findAll(Iterable<Integer> itrbl) {
+            throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        }
+
+        @Override
+        public long count() {
+            throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        }
+
+        @Override
+        public void delete(Integer id) {
+            throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        }
+
+        @Override
+        public void delete(Transaccion t) {
+            throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        }
+
+        @Override
+        public void delete(Iterable<? extends Transaccion> itrbl) {
+            throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        }
+
+        @Override
+        public void deleteAll() {
+            throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        }
+
+        @Override
+        public List<Transaccion> consultarTodos() {
+            throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        }
     };
 
 
@@ -260,6 +343,18 @@ public class Logica {
         return pr.consultarTodos();
     } 
     
+     public List<Proveedor> consultarProTransporte(){
+        return pr.consultarProveedorTransporte(1);
+    } 
+     
+     public List<Proveedor> consultarProArticulo(){
+        return pr.consultarProveedorArticulo(2);
+    } 
+    
+    /**
+     * 
+     * @return lista de todos los clientes
+     */
     public List<Cliente> consultarCliente(){
         return cr.consultarTodos();
     } 
@@ -273,6 +368,22 @@ public class Logica {
          List<Producto> productos = productRepository.buscarProductos(id);
          return productos;
     }
-
+    
+    public List<Producto> consultarArticuloProveedor(int id){
+        List<Producto> articulos = productRepository.buscarArticulo(id);
+        return articulos;
+    }
+    
+    public void guardarTransaccion(Transaccion t, int idCliente, int idTransporte){
+        Transaccion transaccion = new Transaccion(t.isAprobacion(), t.getFecha());
+        
+        tr.save(transaccion);
+    }
+    
+    public List<Transaccion> consultarTransaccion(){
+        return tr.consultarTodos();
+    } 
+    
+    
 
 }

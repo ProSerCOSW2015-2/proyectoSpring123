@@ -29,14 +29,7 @@ public class RegistraClienteController {
     
  @Autowired
     Logica logica;
- 
-    /*
-    *
-    *Return 0 = false
-    *Return 1 = true
-    */
-    int sesion = 0;
-    
+     
     /**
      * 
      * @return prueba rest api
@@ -52,7 +45,7 @@ public class RegistraClienteController {
      */
     @RequestMapping(value="/guardar",method = RequestMethod.POST)
     public ResponseEntity<?> registrarCliente(@RequestBody Cliente cliente ){
-        logica.agregarCliente(cliente.getNombre(),cliente.getApellido(),cliente.getTipoDoc(),cliente.getNumDoc(),cliente.getDireccion(),cliente.getTelefono(),cliente.getCorreo(), cliente.getContraseña()); 
+        logica.agregarCliente(cliente.getNombre(),cliente.getApellido(),cliente.getTipoDoc(),cliente.getNumDoc(),cliente.getDireccion(),cliente.getTelefono(),cliente.getCorreo(), cliente.getContrasena()); 
         return new ResponseEntity<>(HttpStatus.CREATED);
     }  
     

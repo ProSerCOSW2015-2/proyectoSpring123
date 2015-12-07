@@ -17,7 +17,7 @@
         <script src="js/libs/angular.min.js"></script>
         <script src="js/libs/angular-route.min.js"></script>
         <script src="js/app/serviciosProySer.js"></script>
-        <script src="js/app/controlador.js"></script>       
+        <script src="js/app/controlador.js"></script>
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -29,7 +29,7 @@
 
 </head>
 <body ng-app="proyser">
-<header class="header">
+    <header class="header" ng-controller="proysercontroller">
 	<div class="container">
 		<div class="row">
 			<div class="col-md-4 ">
@@ -46,12 +46,15 @@
 							<li><a href="#home" class="page-scroll active">Inicio</a></li>
 							<li><a href="#registrar" >Registrarme</a></li>
 							<li><a href="#transp" >Transporte</a></li>
-                                                        <li><a href="#articulos" >Articulos</a></li>
+                                                        <li><a href="#articulo">Articulos</a></li>
                                                         <li><a href="#alimentacion" >Alimentacion</a></li>
 							<li><a href="#section4" class="page-scroll">Contactenos</a></li>
+                                                        <li class="page-scroll" style=" color: #F9F9F9;font-weight: 500; font-family: 'Poppins', sans-serif;line-height: 29px;background-color: #212A3F;z-index: 999;">{{nombreUsuario}}</li>
+                                                        
 					</ul>
 				</nav>
 			</div>
+                  
 		</div>
 	</div>
 </header>
@@ -70,7 +73,7 @@
 			<div class="col-md-12">
 				<h2 class="text-center portfolio-text">Contactenos</h2>
 				<div class="col-md-6 col-sm-12 col-xs-12contact-form">
-					<form role="form">
+                    <form role="form">
                         <div class="form-group">
                             <input type="text" class="form-control form-effect" id="name" placeholder="Nombre">
                         </div>

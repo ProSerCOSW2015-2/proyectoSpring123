@@ -23,5 +23,8 @@ public interface ProductRepository extends CrudRepository<Producto, Integer>{
 
     @Query("from Transporte t where t.proveedor.idProveedor like :ln")
     public List<Producto> buscarProductos(@Param("ln") int searchTerm);
+    
+    @Query("select p from Producto p join p.proveedors pp where pp.idProveedor like :ln")
+    public List<Producto> buscarArticulo(@Param("ln") int searchTerm);
 
 }

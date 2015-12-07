@@ -50,11 +50,28 @@ public class ProductsController {
         return logica.consultarProveedores();
     }
     
-
-
+    @RequestMapping(value="/transporte",method = RequestMethod.GET)        
+    public List<Proveedor> consultarProveedorTransporte() {  
+        return logica.consultarProTransporte();
+    }
+    
+    @RequestMapping(value="/articulo",method = RequestMethod.GET)        
+    public List<Proveedor> consultarProveedorarticulo() {  
+        return logica.consultarProArticulo();
+    }
+    
+      /**
+     * 
+     * @return lista con todos los productos de un provvedor de transporte
+     */
     @RequestMapping(value = "/producto/{id}",method = RequestMethod.GET)
     public List<Producto> consultarProductoProveedorTransporte(@PathVariable int id){
          return logica.consultaProductoProveedor(id);
+    }
+    
+    @RequestMapping(value = "/articulos/{id}",method = RequestMethod.GET)
+    public List<Producto> consultarArticulosProveedor(@PathVariable int id){
+         return logica.consultarArticuloProveedor(id);
     }
 
     
