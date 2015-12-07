@@ -79,7 +79,7 @@ public class PersistenceFacedeTest {
        assertEquals("Una persona con el mismo correo no debe ser agregada",6, cr.count());
 
        assertEquals("Una persona con el mismo correo no debe ser agregada",6, cr.count());*/
-		assertTrue(true,true);
+       assertEquals(true,true);
 	
 
    }
